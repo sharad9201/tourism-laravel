@@ -1,0 +1,372 @@
+@charset "UTF-8";
+.text-green {
+  color: #1BB626 !important;
+}
+
+.text-black-100 {
+  color: #1A231E !important;
+}
+
+.text-gray-200 {
+  color: #5D6360 !important;
+}
+
+.text-red {
+  color: #FF0000 !important;
+}
+
+.bg-green {
+  background: #1BB626 !important;
+}
+
+.bg-black-100 {
+  background: #1A231E !important;
+}
+
+.bg-gray-200 {
+  background: #5D6360 !important;
+}
+
+.bg-red {
+  background: #FF0000 !important;
+}
+
+.text-hover-green:hover {
+  text-decoration: none !important;
+  color: #1BB626 !important;
+}
+
+.text-hover-black-100:hover {
+  text-decoration: none !important;
+  color: #1A231E !important;
+}
+
+.text-hover-gray-200:hover {
+  text-decoration: none !important;
+  color: #5D6360 !important;
+}
+
+.text-hover-red:hover {
+  text-decoration: none !important;
+  color: #FF0000 !important;
+}
+
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.ellipsis {
+  white-space: nowrap;
+  /* 1 */
+  text-overflow: ellipsis;
+  /* 2 */
+  overflow: hidden;
+}
+
+.logo {
+  font-weight: 900;
+  font-style: italic;
+  font-family: Segoe UI;
+  color: #1BB626 !important;
+  font-size: 30px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link:hover {
+  color: #1BB626 !important;
+}
+
+.navbar-nav .active {
+  color: #1BB626 !important;
+}
+
+.btn-outline-primary {
+  border: 2px solid #1BB626;
+  border-radius: 6px;
+  min-width: 100px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.btn-outline-primary:hover {
+  color: #fff !important;
+}
+
+.border {
+  border: 2px solid #1BB626;
+}
+
+.media-img {
+  width: 70px;
+  height: 70px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  border: 2px solid #1BB626;
+}
+
+.list-discription {
+  max-height: 150px;
+  overflow: hidden;
+}
+
+.location {
+  font-size: 14px;
+}
+
+.hero-section {
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  padding: 80px 0;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.hero-section h1 {
+  font: italic bold 70px Segoe UI, serif;
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+
+.hero-section p {
+  max-width: 700px;
+}
+
+.hero-section:after {
+  content: "";
+  display: block;
+  clear: both;
+  height: 500px;
+}
+
+.our-services h2 {
+  font-size: 32px;
+}
+
+.our-services .card:hover .card-link {
+  visibility: visible;
+  color: #1BB626;
+}
+
+.our-services .card:hover .card-title {
+  color: #1BB626;
+}
+
+.our-services .img-wrap {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  height: 220px;
+}
+
+.our-services .card-text {
+  overflow: hidden;
+  max-height: 150px;
+  color: #5D6360;
+}
+
+.our-services .card-link {
+  font-size: 14px;
+  font-style: italic;
+  visibility: hidden;
+  text-decoration: none;
+}
+
+.style {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.style:after {
+  -webkit-transition: opacity 0.3s linear, width 0.3s linear;
+  transition: opacity 0.3s linear, width 0.3s linear;
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  height: 1px;
+  background: #1BB626;
+}
+
+.style:hover:after {
+  opacity: 1;
+  visibility: visible;
+  width: 100%;
+}
+
+.question .two-column {
+  min-height: 500px;
+}
+
+.question .img-wrap {
+  min-height: 500px;
+  width: 100%;
+}
+
+.review .review-img {
+  width: 120px;
+  height: 120px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: 2px solid #1BB626;
+}
+
+.subscribe {
+  height: 60px;
+}
+
+.subscribe .subscribe-btn {
+  color: #1BB626;
+  background-color: #fff;
+  width: 100%;
+}
+
+.subscribe input {
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 6px;
+}
+
+.detail-section .detail-img {
+  min-height: 450px;
+}
+
+.timings ul {
+  line-height: 30px;
+}
+
+.sidenav {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 80;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+  border: 1px solid #1BB626;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  display: block;
+  color: #1A231E;
+}
+
+.sidenav a:hover {
+  color: #1BB626;
+}
+
+main {
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+.sidenav img {
+  height: 200px;
+  max-width: 100%;
+}
+
+.input {
+  border: 2px solid #1BB626;
+  border-radius: 6px;
+}
+
+/*.contact-list {
+  @extend %listreset;
+  display: flex;
+}
+.form-control {
+  padding: $input-padding-y $input-padding-x;
+
+  &:focus {
+    box-shadow: $input-box-shadow;
+  }
+}
+#search {
+  .input-group {
+    flex: 1;
+  }
+  .btn {
+    flex-basis: 100px;
+    max-width: 100px;
+  }
+}
+
+.navbar-brand {
+  &:hover {
+    box-shadow: 1px 10px 10px 10px yellow;
+  }
+}
+*/
+@font-face {
+  font-family: "icomoon";
+  src: url("fonts/icomoon.eot?j848qr");
+  src: url("fonts/icomoon.eot?j848qr#iefix") format("embedded-opentype"), url("fonts/icomoon.ttf?j848qr") format("truetype"), url("fonts/icomoon.woff?j848qr") format("woff"), url("fonts/icomoon.svg?j848qr#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "icomoon" !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-location:before {
+  content: "";
+}
+
+.icon-facebook2:before {
+  content: "";
+}
+
+.icon-instagram:before {
+  content: "";
+}
+
+.icon-twitter:before {
+  content: "";
+}
+
+html {
+  font-size: 1rem;
+}
+
+body {
+  min-width: 320px;
+}
