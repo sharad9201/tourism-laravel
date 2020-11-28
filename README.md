@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # tourism-laravel
 hello nepal 
 =======
