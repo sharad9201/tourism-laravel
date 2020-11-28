@@ -19,9 +19,9 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 
 ## incase of error </br>
-    use this command</br>
-        - composer dump-autoload</br>
-         -composer install</br>
+    use this command
+        - composer dump-autoload
+         -composer install
 
 ## Contributing
 
