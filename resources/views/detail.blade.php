@@ -59,7 +59,7 @@
                 <li>Customer care avaiable</li>
                 <li>Hand-picked itineraries</li>
             </ul>
-            <a href="" class="btn btn-secondary text-uppercase btn-lg">book this trip</a>
+            <a href="{{ route('form') }}" class="btn btn-secondary text-uppercase btn-lg">book this trip</a>
         </div>
 
         <div class="about">

@@ -15,6 +15,9 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+                    <a class="nav-link btn-outline-primary" href="{{ route('form') }}">form Up</a>
+                    <a class="nav-link btn-outline-primary" href="{{ route('detail') }}">deatail</a>
+
                 </div>
             </div>
         </div>
