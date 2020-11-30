@@ -1,0 +1,13 @@
+.about {
+  padding: 40px;
+  margin: 10px 0 10px 10px;
+}
+
+.about > p {
+  font-size: 18px;
+  line-height: 30px;
+}
+
+ul > li {
+  line-height: 30px;
+}
