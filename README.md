@@ -22,4 +22,21 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
     use this command
         - composer dump-autoload
          -composer install
+## New package trix is added so this might cause error so follow this steps
+      
 
+	• composer require te7a-houdini/laravel-trix
+	• php artisan vendor:publish --provider="Te7aHoudini\LaravelTrix\LaravelTrixServiceProvider"
+	• php artisan migrate
+	
+
+    From <https://laravel-news.com/trix-editor-for-laravel> 
+
+    <html> <head> @trixassets </head> 
+    <body> <form method="POST" action="route('article.store')">
+     @csrf
+     @trix(\App\Article::class, 'content')
+     <input type="submit"> </form> </body> </html>
+ ## for detail follow this link
+ <a href="https://github.com/amaelftah/laravel-trix">trix docs</a>
+ 
