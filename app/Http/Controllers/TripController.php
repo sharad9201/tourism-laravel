@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-class DetailsController extends Controller
+use App\Trip;
+class TripController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class DetailsController extends Controller
     public function index()
     {
         //
-        return view('detail');
+        return view('trip.index')->with('trips',Trip::all());;
     }
 
     /**
@@ -25,6 +25,8 @@ class DetailsController extends Controller
     public function create()
     {
         //
+        return view('trip.create');
+
     }
 
     /**
@@ -36,6 +38,31 @@ class DetailsController extends Controller
     public function store(Request $request)
     {
         //
+        //dd($request);
+        
+        $image=$request->image->store('trips'); 
+        $transport=serialize($request->transport);
+        $trip =new Trip;
+        $trip->title=$request->title;
+        $trip->destination=$request->destination;
+            $trip->trip_difficulty=$request->difficulty;
+            $trip->trip_style=$request->style;
+            $trip->transport=$transport;
+            $trip->price_low=$request->low_price;
+            $trip->know_before_booking=$request["post-trixFields"][ "know_before_booking"];
+            $trip->itinerary=$request["post-trixFields"]["itenary"];
+            $trip->higlight=$request["post-trixFields"]["highlight"];
+            $trip->day=$request->day;
+            $trip->night=$request->night;
+            $trip->included=$request["post-trixFields"]["included"];
+            $trip->not_included=$request["post-trixFields"]["not_included"];
+            $trip->image=$image;
+            $trip->save();
+        session()->flash("success","successfully saved");
+
+        return redirect(route('tripdetail.index'));
+
+
     }
 
     /**
