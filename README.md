@@ -22,7 +22,8 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
     use this command
         - composer dump-autoload
          -composer install
-## New package trix is added so this might cause error so follow this steps
+     
+ ## New package trix is added so this might cause error so follow this steps
       
 
 	• composer require te7a-houdini/laravel-trix
@@ -37,6 +38,6 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
      @csrf
      @trix(\App\Article::class, 'content')
      <input type="submit"> </form> </body> </html>
- ## for detail follow this link
+ ## for detail about Trix-laravel follow this link
  <a href="https://github.com/amaelftah/laravel-trix">trix docs</a>
  
