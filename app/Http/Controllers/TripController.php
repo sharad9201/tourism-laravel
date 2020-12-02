@@ -74,6 +74,8 @@ class TripController extends Controller
     public function show($id)
     {
         //
+        $trip= Trip::find($id);
+        return view('trip.detail')->with("trip",$trip);
     }
 
     /**
@@ -85,6 +87,8 @@ class TripController extends Controller
     public function edit($id)
     {
         //
+        $trip=Trip::find($id);
+        return view('trip.create')->with("trip",$trip);
     }
 
     /**
@@ -94,9 +98,38 @@ class TripController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(Request $request,$id)
+    {   $data=$request->all();
+        $trip =Trip::find($id);
+        
+        if($request->image){
+            $image=$request->image->store('trips'); 
+             $trip->image=$image;
+           }
+        //dd($data);
+          
+        $transport=serialize($data['transport']);
+        
+ 
+            $trip->title=$data['title'];
+        $trip->destination=$data['destination'];
+            $trip->trip_difficulty=$data['difficulty'];
+            $trip->trip_style=$data['style'];
+            $trip->transport=$data['transport'];
+            $trip->price_low=$data['low_price'];
+            $trip->know_before_booking=$data['know_before_booking'];
+            $trip->itinerary=$data['itenary'];
+            $trip->higlight=$data['highlight'];
+            $trip->day=$data['day'];
+            $trip->night=$data['night'];
+            $trip->included=$data['included'];
+            $trip->not_included=$data['not_included'];
+            
+            $trip->save();
+        session()->flash("success","Updated  sucessfully");
+
+        return redirect(route('tripdetail.index'));
+
     }
 
     /**
@@ -108,5 +141,8 @@ class TripController extends Controller
     public function destroy($id)
     {
         //
+        $package=Trip::find($id);
+        $package->delete();
+        return redirect(route("tripdetail.index"));
     }
 }
