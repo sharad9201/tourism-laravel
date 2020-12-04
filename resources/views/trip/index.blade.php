@@ -1,9 +1,18 @@
 @extends('layouts.app')
 @section('dash')
     <h3>dashboard</h3>
+    <div class="card">
+      <a href="{{route("tripdetail.create")}}" class="card-header  text-white bg-primary ">Add Package</a>
+    </div>
+    <div class="card">
+      <a href="{{route("tripdetail.index")}}" class="card-header text-white bg-primary ">All Package</a>
+    </div>
 @endsection
 @section('form')
 <div class="container my-4">
+  <div class="d-flex justify-content-center">
+    {!! $trips->links() !!}
+  </div>
     <table class="table table-dark">
         <thead>
             <tr>
@@ -38,10 +47,14 @@
         </td>
         </tr>
         @endforeach
+
 </div>  
-        
+
         </tbody>
     </table>
+    <div class="d-flex justify-content-center">
+      {!! $trips->links() !!}
+    </div>
     </div>
 
      

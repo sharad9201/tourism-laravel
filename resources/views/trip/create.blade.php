@@ -2,6 +2,13 @@
 
 @section('dash')
     <h3>dashboard</h3>
+  
+    <div class="card text-center">
+      <a href="{{route("tripdetail.create")}}" class="card-header  text-white bg-primary ">Add Package</a>
+    </div>
+    <div class="card text-center">
+      <a href="{{route("tripdetail.index")}}" class="card-header text-white bg-primary ">All Package</a>
+    </div>
 @endsection
 
 @section('form')
@@ -71,6 +78,7 @@
                     <div class="form-inline ">
                         <div class="form-check mr-4 mb-5">
                             @if(isset($trip))
+                          
                         <input class="form-check-input" type="checkbox" name="transport[]" value="plane" {{
                             
                          in_array('Aeroplane',unserialize($trip->transport))?"checked":""}}>
@@ -208,7 +216,7 @@
             </div>
         </div>
         <div class="container">
-            <button type="submit" class="btn btn-primary">Create</button>
+        <button type="submit" class="btn btn-primary">{{isset($trip)?"Update":"Create"}}</button>
         </div>
     </form>
 

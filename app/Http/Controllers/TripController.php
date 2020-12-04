@@ -14,7 +14,9 @@ class TripController extends Controller
     public function index()
     {
         //
-        return view('trip.index')->with('trips',Trip::all());;
+        $trips=Trip::paginate(4);
+
+        return view('trip.index',compact('trips'));
     }
 
     /**
@@ -121,6 +123,7 @@ class TripController extends Controller
             $trip->itinerary=$data['itenary'];
             $trip->higlight=$data['highlight'];
             $trip->day=$data['day'];
+            $trip->transport=$transport;
             $trip->night=$data['night'];
             $trip->included=$data['included'];
             $trip->not_included=$data['not_included'];

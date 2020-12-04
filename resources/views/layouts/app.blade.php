@@ -84,12 +84,12 @@
 
                 <div class="row">
                     @yield("index")
-                    <div class="col-2">
+                    <div class="col-3">
                         <div class="container">
                            @yield("dash")
                         </div>
                     </div>
-                    <div class="col-10">
+                    <div class="col-9">
                         @yield('form')
                     </div>
             
