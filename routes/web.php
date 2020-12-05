@@ -31,3 +31,5 @@ Route::get('/form','FormController@index')->name('form');
 Route::get('/detail','DetailsController@index')->name('detail');
 Route::post('submit','DestinationController@save');
 Route::resource('tripdetail','TripController');
+Route::get('tripdetail/{tripdetail}/photo','TripController@photo')->name('tripdetail.photo');
+Route::post('tripdetail','TripController@photostore')->name('tripdetail.photostore');

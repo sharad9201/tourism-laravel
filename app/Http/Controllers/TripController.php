@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Trip;
+use App\Image;
+use DB;
 class TripController extends Controller
 {
     /**
@@ -15,8 +17,8 @@ class TripController extends Controller
     {
         //
         $trips=Trip::paginate(4);
-
-        return view('trip.index',compact('trips'));
+        $images=Image::all();
+        return view('trip.index',compact('trips','images'));
     }
 
     /**
@@ -40,11 +42,12 @@ class TripController extends Controller
     public function store(Request $request)
     {
         //
-        //dd($request);
+       
         
-        $image=$request->image->store('trips'); 
+        $img=$request->image->store('trips'); 
         $transport=serialize($request->transport);
         $trip =new Trip;
+        
         $trip->title=$request->title;
         $trip->destination=$request->destination;
             $trip->trip_difficulty=$request->difficulty;
@@ -58,12 +61,32 @@ class TripController extends Controller
             $trip->night=$request->night;
             $trip->included=$request["post-trixFields"]["included"];
             $trip->not_included=$request["post-trixFields"]["not_included"];
-            $trip->image=$image;
+            
             $trip->save();
+           
+            $image=new Image();
+            $image->trip_id=$trip->id;
+           
+            $image->image=$img;
+            $image->save();
+            
         session()->flash("success","successfully saved");
 
         return redirect(route('tripdetail.index'));
 
+
+    }
+
+    public function photostore(Request $request)
+    {
+       // dd($request->trip_id);
+        $img=$request->image->store('trips'); 
+        $image=new Image();
+        $image->trip_id=$request->trip_id;
+       
+        $image->image=$img;
+        $image->save();
+        return redirect(route('tripdetail.photo',$request->trip_id));
 
     }
 
@@ -77,7 +100,8 @@ class TripController extends Controller
     {
         //
         $trip= Trip::find($id);
-        return view('trip.detail')->with("trip",$trip);
+        $images=DB::table('images')->where('trip_id','=',$id)->get();
+        return view('trip.detail',compact('trip','images'));
     }
 
     /**
@@ -148,4 +172,11 @@ class TripController extends Controller
         $package->delete();
         return redirect(route("tripdetail.index"));
     }
+
+    public function photo($id){
+        $images=DB::table('images')->where('trip_id','=',$id)->get();
+        $title=Trip::find($id);
+        return view('trip.gallery',compact('images','title'));    
+    }
+    
 }

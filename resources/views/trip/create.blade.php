@@ -63,16 +63,34 @@
                         @endif
                       </select>
                      
+                      {{-- image upload section --}}
+                      <label >upload picture</label>
+                      
+                      <div class="input-group mb-3">
+                      
                       <div class="col-md-7 mb-2">
                         <img id="image_preview_container" src="{{ asset('storage/image/image-preview.png') }}"
                             alt="preview image" style="max-height: 150px;">
-                    </div>
+                       </div>
+                    
                     <div class="col-md-7">
+                      
                         <div class="form-group">
-                            <input type="file" name="image" placeholder="Choose image" id="image">
+                            <input type="file" name="image" placeholder="Choose image" id="image" multiple>
+                            
                             <span class="text-danger">{{ $errors->first('title') }}</span>
+                           
+                              {{-- <div class="custom-file">
+                                <input type="file"  name="image[]" class="custom-file-input" id="image" aria-describedby="inputGroupFileAddon01">
+                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                              </div>
+                            </div> --}}
                         </div>
+                        
                     </div>
+
+
+
                    <div class="form-group">
                     <label for="form-check">Transport</label>
                     <div class="form-inline ">
@@ -216,7 +234,8 @@
             </div>
         </div>
         <div class="container">
-        <button type="submit" class="btn btn-primary">{{isset($trip)?"Update":"Create"}}</button>
+        <button type="submit" class="btn btn-success" style="margin-top:10px">{{isset($trip)?"Update":"Create"}}</button>
+      
         </div>
     </form>
 
