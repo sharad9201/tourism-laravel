@@ -26,10 +26,14 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
     use this command
         - composer dump-autoload
          -composer install
+
   ## for storing image you may face error so follow this steps:
     -copy and paste FILESYSTEM_DRIVER=public in .env if not added
     -makesure in filesystem.php it has  'default' => env('FILESYSTEM_DRIVER', 'public'),
     -run this command: Php artisan storage:link 
+
+     
+
  ## New package trix is added so this might cause error so follow this steps
       
 
