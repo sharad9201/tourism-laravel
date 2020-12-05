@@ -1,7 +1,7 @@
 
 # tourism-webApp using laravel
 
-=======
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
@@ -26,7 +26,14 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
     use this command
         - composer dump-autoload
          -composer install
+
+  ## for storing image you may face error so follow this steps:
+    -copy and paste FILESYSTEM_DRIVER=public in .env if not added
+    -makesure in filesystem.php it has  'default' => env('FILESYSTEM_DRIVER', 'public'),
+    -run this command: Php artisan storage:link 
+
      
+
  ## New package trix is added so this might cause error so follow this steps
       
 

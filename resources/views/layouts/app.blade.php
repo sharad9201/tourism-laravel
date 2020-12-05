@@ -10,14 +10,16 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
+    <script src="{{ asset('js/app.js') }}"></script>
+    @yield("scripts")       
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+    
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @trixassets
+    @yield("css")
 </head>
 <body>
     <div id="app">
@@ -78,7 +80,21 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            <div class="container">
+
+                <div class="row">
+                    @yield("index")
+                    <div class="col-3">
+                        <div class="container">
+                           @yield("dash")
+                        </div>
+                    </div>
+                    <div class="col-9">
+                        @yield('form')
+                    </div>
+            
+                </div>
+            </div>
         </main>
     </div>
 </body>
