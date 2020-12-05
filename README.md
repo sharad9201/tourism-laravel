@@ -1,7 +1,7 @@
 
-# tourism-laravel
-hello nepal 
-=======
+# tourism-webApp using laravel
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
@@ -15,40 +15,36 @@ hello nepal
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-##incase of error
+## for contribution
+    -first fork the repo
+    -then clone repo using pull request
+    -then create your own branch 
+    -now you are good to go
+## incase of error </br>
     use this command
         - composer dump-autoload
          -composer install
+  ## for storing image you may face error so follow this steps:
+    -copy and paste FILESYSTEM_DRIVER=public in .env if not added
+    -makesure in filesystem.php it has  'default' => env('FILESYSTEM_DRIVER', 'public'),
+    -run this command: Php artisan storage:link 
+ ## New package trix is added so this might cause error so follow this steps
+      
 
-## Contributing
+	• composer require te7a-houdini/laravel-trix
+	• php artisan vendor:publish --provider="Te7aHoudini\LaravelTrix\LaravelTrixServiceProvider"
+	• php artisan migrate
+	
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+    From <https://laravel-news.com/trix-editor-for-laravel> 
 
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
->>>>>>> 10ab4eef717bbfad5fff2fb9eccff37b577ffaff
+    <html> <head> @trixassets </head> 
+    <body> <form method="POST" action="route('article.store')">
+     @csrf
+     @trix(\App\Article::class, 'content')
+     <input type="submit"> </form> </body> </html>
+ ## for detail about Trix-laravel follow this link
+ <a href="https://github.com/amaelftah/laravel-trix">trix docs</a>
+ 
