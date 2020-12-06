@@ -9,7 +9,7 @@ class Destination extends Model
 {
     //
     
-    // protected $destination = 'destination';
+    //  protected $table = 'destination';
 
     public $primaryKey = 'destination_id';
 

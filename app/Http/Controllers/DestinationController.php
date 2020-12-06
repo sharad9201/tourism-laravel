@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Destination;
+use App\db;
 
 class DestinationController extends Controller
 {
+
    function save(Request $req, Destination $destination){
 
     //  print_r($req->input());
@@ -23,5 +25,25 @@ class DestinationController extends Controller
 
        return redirect()->route('detail');
    }
+   public function index(){
+      
+
+      $destinations=Destination::paginate(10);
+      return view('booking',compact('destinations'));
+
+      // $users = User::find(auth()->user()->id);
+
+      //  return view('booking', compact('destinations'));
+
+   }
+    public function show(Destination $id){
+
+      // $destinations = new Destionation;
+      $destinations = Destination::find($id);
+      return view('booking')->with("destinations",$destination);
+   }
+
+  
+
 
 }

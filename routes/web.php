@@ -33,3 +33,4 @@ Route::post('submit','DestinationController@save');
 Route::resource('posts','PostsController');
 Route::resource('tripdetail','TripController');
 Route::get('/dashboard','DashboardController@index')->name('dashboard');
+Route::resource('booking','DestinationController',['except'=>['edit','create','store','destroy']]);

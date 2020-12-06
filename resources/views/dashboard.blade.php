@@ -15,6 +15,7 @@
 	<div class="container">
     {{-- <img src="images/logo.png"> --}}
        <a href="{{route('posts.create')}}" class="logout-btn">CREATE POSTS</a>
+       <a href="{{route('booking.index')}}" class="logout-btn">Show My Booking</a>
         {{-- <button class="logout-btn"><a  href="{{route('posts.create')}}">{{__'create_posts')}}</button> --}}
         <button class="logout-btn"  href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
          {{ __('Logout') }}
@@ -40,22 +41,29 @@
     </div>
     
     <div class="row">
+     
       @foreach ($trips as $trip)
+      
       <div class="card">
         <div class="card-header">
-          
-          <h1> {{$trip->id}} </h1>
+         
+          {{-- <h1> {{$trip->id}} </h1> --}}
           <h1> {{$trip->title}} </h1>
          
-          <img src="{{asset('storage/'.$trip->image)}}" alt="Main Image" class="img-fluid " height="100px" width="100px">
+          <img src="{{asset('public/storage/trips'.$trip->image)}}" alt="Main Image" class="img-fluid " height="100px" width="100px">
           </div>
-        <div class="card-body">
+          <div class="card-body">
           {{-- <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi neque molestiae eius explicabo mollitia tempore reiciendis, vel, sequi.
           </p> --}}
           <a href="{{route('tripdetail.show',$trip->id)}}" class="btn">Book Now</a>
+          
+              
+         
         </div>
+        
       </div>
+     
       {{-- <div class="card">
         <div class="card-header">
           <h1> {{$trip->id}} </h1>
@@ -95,7 +103,9 @@
      --}}
       @endforeach  
     </div>
+    
   </div>
+  
   <div class="heading"> 
     <h2>Most visited Places</h2>
   
@@ -110,7 +120,7 @@
 
          <h1> {{$trip->title}} </h1>
           <h3>NRP:{{$trip->price_low}} </h3>
-         <img src="{{asset('storage/'.$trip->image)}}" alt="Main Image" class="img-fluid " height="100px" width="100px">
+         <img src="{{asset('storage/trips/'.$trip->image)}}" alt="Main Image" class="img-fluid " height="100px" width="100px">
          <a href="{{route('tripdetail.show',$trip->id)}}" class="btn btn-info ">Detail</a>
         {{-- @endforeach --}}
         

@@ -11,7 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
+    @yield("scripts") 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
@@ -68,6 +68,9 @@
                                     </a>
                                     <a class="dropdown-item" href="{{route('tripdetail.index')}}">
                                         trip detail
+                                    </a>
+                                    <a class="dropdown-item" href="{{route('booking.index')}}">
+                                        User Booked
                                     </a>
                                     @endcan
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
