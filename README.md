@@ -31,6 +31,18 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
     -copy and paste FILESYSTEM_DRIVER=public in .env if not added
     -makesure in filesystem.php it has  'default' => env('FILESYSTEM_DRIVER', 'public'),
     -run this command: Php artisan storage:link 
+    
+ ## toastr notification 
+    do follow this link :<a href="https://www.nicesnippets.com/blog/laravel-6-toastr-notifications-using-yoeunestoastr-package">toastr notification</a>
+    step:
+       - composer require yoeunes/toastr
+       -in config/App.php file add 
+       'providers' => [
+    ...
+    ````
+    Yoeunes\Toastr\ToastrServiceProvider::class
+    ...
+]; 
 
      
 
