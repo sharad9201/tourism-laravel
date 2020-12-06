@@ -30,4 +30,6 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
 Route::get('/form','FormController@index')->name('form');
 Route::get('/detail','DetailsController@index')->name('detail');
 Route::post('submit','DestinationController@save');
-
+Route::resource('posts','PostsController');
+Route::resource('tripdetail','TripController');
+Route::get('/dashboard','DashboardController@index')->name('dashboard');

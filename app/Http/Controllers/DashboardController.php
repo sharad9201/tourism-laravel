@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Trip;
+use App\Post;
 
 class DashboardController extends Controller
 {
@@ -14,7 +16,8 @@ class DashboardController extends Controller
     public function index()
     {
         //
-        return view('dashboard');
+        $trips=Trip::paginate(4);
+        return view('dashboard',compact('trips'));
     }
 
     /**

@@ -17,6 +17,8 @@ class DestinationController extends Controller
        $destination ->trip_date = $req->trip_date;
        $destination ->phone_number = $req->phone_number;
        $destination ->extra = $req->extra;
+      //  $destination -> Auth::user()->id;
+       $destination->user_id = auth()->user()->id;
        $destination->save();
 
        return redirect()->route('detail');

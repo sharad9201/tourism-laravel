@@ -18,6 +18,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @trixassets
+    @yield("css")
 </head>
 <body>
     <div id="app">
@@ -64,6 +66,9 @@
                                     <a class="dropdown-item" href="{{route('admin.users.index')}}">
                                         User Management
                                     </a>
+                                    <a class="dropdown-item" href="{{route('tripdetail.index')}}">
+                                        trip detail
+                                    </a>
                                     @endcan
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
@@ -79,6 +84,20 @@
 
         <main class="py-4">
             @yield('content')
+            <div class="container">
+
+                <div class="row">
+                    @yield("index")
+                    <div class="col-3">
+                        <div class="container">
+                           @yield("dash")
+                        </div>
+                    </div>
+                    <div class="col-9">
+                        @yield('form')
+                    </div>
+            
+                </div>
         </main>
     </div>
 </body>

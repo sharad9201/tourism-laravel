@@ -38,30 +38,39 @@
     <div class="heading">
       <h1>Destination Booking</h1>
     </div>
+    
     <div class="row">
+      @foreach ($trips as $trip)
       <div class="card">
         <div class="card-header">
-          <img src="https://cdn.traveltalktours.com/wp-content/uploads/2017/01/Essential-Nepal-thumb-360x225.jpg">
+          
+          <h1> {{$trip->id}} </h1>
+          <h1> {{$trip->title}} </h1>
+         
+          <img src="{{asset('storage/'.$trip->image)}}" alt="Main Image" class="img-fluid " height="100px" width="100px">
+          </div>
+        <div class="card-body">
+          {{-- <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi neque molestiae eius explicabo mollitia tempore reiciendis, vel, sequi.
+          </p> --}}
+          <a href="{{route('tripdetail.show',$trip->id)}}" class="btn">Book Now</a>
         </div>
+      </div>
+      {{-- <div class="card">
+        <div class="card-header">
+          <h1> {{$trip->id}} </h1>
+          <h1> {{$trip->title}} </h1>
+         
+          <img src="{{asset('storage/'.$trip->image)}}" alt="Main Image" class="img-fluid " height="100px" width="100px">
+                 </div>
         <div class="card-body">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi neque molestiae eius explicabo mollitia tempore reiciendis, vel, sequi.
           </p>
           <a href="{{route('detail')}}" class="btn">Book Now</a>
         </div>
-      </div>
-      <div class="card">
-        <div class="card-header">
-          <img src="https://media.tacdn.com/media/attractions-splice-spp-674x446/06/73/33/6b.jpg">
-        </div>
-        <div class="card-body">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi neque molestiae eius explicabo mollitia tempore reiciendis, vel, sequi.
-          </p>
-          <a href="{{route('detail')}}" class="btn">Book Now</a>
-        </div>
-      </div>
-      <div class="card">
+      </div> --}}
+      {{-- <div class="card">
         <div class="card-header">
           <img src="https://www.eyesonnepal.com/wp-content/uploads/2015/03/Tibet-Nepal-Tours.jpg">
         </div>
@@ -71,8 +80,8 @@
           </p>
           <a href="{{route('detail')}}" class="btn">Book Now</a>
         </div>
-      </div>
-      <div class="card">
+      </div> --}}
+      {{-- <div class="card">
         <div class="card-header">
           <img src="https://www.nepaltours.com/wp-content/uploads/2019/01/1522848_458752154225670_762148131_o.jpg">
         </div>
@@ -83,6 +92,8 @@
           <a href="{{route('detail')}}" class="btn">Book Now</a>
         </div>
       </div>
+     --}}
+      @endforeach  
     </div>
   </div>
   <div class="heading"> 
@@ -90,25 +101,34 @@
   
   </div>
   <div class="image-container">
-      
+    @foreach ($trips as $trip)
       <div class="image">
-        <h1> place name</h1>
-        <a href="#"><img src="https://www.nepaltours.com/wp-content/uploads/2019/01/1522848_458752154225670_762148131_o.jpg">
-        </a>
+       
+        {{-- <a href="#"><img src="https://www.nepaltours.com/wp-content/uploads/2019/01/1522848_458752154225670_762148131_o.jpg">
+        </a> --}}
+        {{-- @foreach ($trips as $trip) --}}
+
+         <h1> {{$trip->title}} </h1>
+          <h3>NRP:{{$trip->price_low}} </h3>
+         <img src="{{asset('storage/'.$trip->image)}}" alt="Main Image" class="img-fluid " height="100px" width="100px">
+         <a href="{{route('tripdetail.show',$trip->id)}}" class="btn btn-info ">Detail</a>
+        {{-- @endforeach --}}
+        
       </div>
-      <div class="image">
+      @endforeach
+      {{-- <div class="image">
         <h1> place name</h1>
         <a href="#"><img src="https://www.adventurewhitehimalaya.com/wp-content/uploads/2020/05/lumbini.jpg">
-      </div>
-      <div class="image">
+      </div> --}}
+      {{-- <div class="image">
         <h1> place name</h1>
         <a href="#"><img src="https://www.eyesonnepal.com/wp-content/uploads/2015/03/Tibet-Nepal-Tours.jpg">
       </div>
       <div class="image">
         <h1> place name</h1>
         <a href="#"><img src="https://cdn.traveltalktours.com/wp-content/uploads/2017/01/Essential-Nepal-thumb-360x225.jpg">
-      </div>
-      <div class="image">
+      </div> --}}
+      {{-- <div class="image">
         <h1> place name</h1>
         <a href="#"><img src="https://tigerencounter.com/wp-content/uploads/2019/11/Chitwan-NP.jpg">
       </div>
@@ -119,11 +139,11 @@
       <div class="image">
         <h1> place name</h1>
         <a href="#"><img src="https://glaciernepaltreks.com/images/trip/annapurna-base-camp-trek-1582610267.jpg">
-      </div>
-     <div class="image">
+      </div> --}}
+     {{-- <div class="image">
         <h1> place name</h1>
         <a href="#"><img src="https://enlightentrip.com/images/package/C15663129550.jpeg">
-      </div>  
+      </div>   --}}
       
     </div>
   
