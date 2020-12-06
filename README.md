@@ -59,3 +59,19 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+
+
+
+// after running one migration 
+ run seeder to get admin data
+ and only migrate other so that user can get admin data
+ 
+ to run seed 
+ php artisan db:seed
+ 
+ to run migration:
+ php artisan migrate
+ 
+
