@@ -19,9 +19,11 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @trixassets
+    @toastr_css
     @yield("css")
 </head>
 <body>
+    
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -78,7 +80,7 @@
                 </div>
             </div>
         </nav>
-
+        @yield('gallery')
         <main class="py-4">
             <div class="container">
 
@@ -98,4 +100,7 @@
         </main>
     </div>
 </body>
+@jquery
+@toastr_js
+@toastr_render
 </html>

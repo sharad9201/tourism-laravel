@@ -20,6 +20,7 @@
   <div class="d-flex justify-content-center">
     {!! $trips->links() !!}
   </div>
+  <div class="table-responsive">
     <table class="table table-dark">
         <thead>
             <tr>
@@ -57,7 +58,7 @@
         <a href="{{route('tripdetail.edit',$trip->id)}}" class="btn btn-success ">edit</a>
         </td>
         <td>
-          <a href="{{route('tripdetail.photo',$trip->id)}}" class="btn btn-dark ">Add Image</a>
+          <a href="{{route('tripdetail.photo',$trip->id)}}" class=" btn btn-light ">Add Image</a>
         </td>
         <td>
         <form action="{{route('tripdetail.destroy',$trip->id)}}" method="POST">
@@ -75,6 +76,7 @@
 
         </tbody>
     </table>
+  </div>
     <div class="d-flex justify-content-center">
       {!! $trips->links() !!}
     </div>

@@ -32,4 +32,5 @@ Route::get('/detail','DetailsController@index')->name('detail');
 Route::post('submit','DestinationController@save');
 Route::resource('tripdetail','TripController');
 Route::get('tripdetail/{tripdetail}/photo','TripController@photo')->name('tripdetail.photo');
-Route::post('tripdetail','TripController@photostore')->name('tripdetail.photostore');
+Route::post('tripdetail/gallery','TripController@photostore')->name('tripdetail.photostore');
+Route::delete('tripdetail/gallery/{deletephoto}','TripController@photodelete')->name('tripdetail.photodelete');

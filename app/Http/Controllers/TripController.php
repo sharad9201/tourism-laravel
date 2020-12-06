@@ -42,7 +42,24 @@ class TripController extends Controller
     public function store(Request $request)
     {
         //
-       
+    //  / dd($request);
+        $this->validate($request,[
+            'image'        =>  'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'title'=>'required|unique:trips',
+            'destination'=>'required',
+            'difficulty'=>'required',
+            'transport'=>'required',
+            'style'=>'required',
+            'low_price'=>'required',
+            'post-trixFields.know_before_booking'=>'required',
+            'post-trixFields.itenary'=>'required',
+            'post-trixFields.highlight'=>'required',
+            'day'=>'required| integer',
+            'night'=>'required|integer',
+            'post-trixFields.included'=>'required',
+            'post-trixFields.not_included'=>'required'
+
+        ]);
         
         $img=$request->image->store('trips'); 
         $transport=serialize($request->transport);
@@ -71,7 +88,7 @@ class TripController extends Controller
             $image->save();
             
         session()->flash("success","successfully saved");
-
+        toastr()->success('Package Added successfully ');
         return redirect(route('tripdetail.index'));
 
 
@@ -79,6 +96,9 @@ class TripController extends Controller
 
     public function photostore(Request $request)
     {
+        $this->validate($request,[
+            'image'        =>  'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+        ]);
        // dd($request->trip_id);
         $img=$request->image->store('trips'); 
         $image=new Image();
@@ -86,6 +106,7 @@ class TripController extends Controller
        
         $image->image=$img;
         $image->save();
+        toastr()->success('Photo Added successfully ');
         return redirect(route('tripdetail.photo',$request->trip_id));
 
     }
@@ -154,7 +175,7 @@ class TripController extends Controller
             
             $trip->save();
         session()->flash("success","Updated  sucessfully");
-
+        toastr()->success('Photo updated successfully ');
         return redirect(route('tripdetail.index'));
 
     }
@@ -170,13 +191,32 @@ class TripController extends Controller
         //
         $package=Trip::find($id);
         $package->delete();
+        $img=DB::table('images')->where('trip_id','=',$id)->get();
+        
+        foreach($img as $image){
+             $images=Image::find($image->id);
+             $images->delete(); 
+        }
+        toastr()->success('Photo Deleated successfully ');
         return redirect(route("tripdetail.index"));
     }
 
     public function photo($id){
+       
         $images=DB::table('images')->where('trip_id','=',$id)->get();
         $title=Trip::find($id);
         return view('trip.gallery',compact('images','title'));    
+        
     }
+
+    public function photodelete(Request $request,$id){
+       
+        $image=Image::find($id);
+        
+        $image->delete();
+        toastr()->success('Photo Delated successfully ');
+        return redirect(route("tripdetail.photo",$request->trip_id));
+    }
+
     
 }
