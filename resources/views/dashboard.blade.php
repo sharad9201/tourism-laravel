@@ -100,7 +100,7 @@
     <h2>Most visited Places</h2>
   
   </div>
-  <div class="image-container">
+  <div class="image-container">git
     @foreach ($trips as $trip)
       <div class="image">
        
