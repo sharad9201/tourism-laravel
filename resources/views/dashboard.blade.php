@@ -50,15 +50,13 @@
           {{-- <h1> {{$trip->id}} </h1> --}}
           <h1> {{$trip->title}} </h1>
          
-          <img src="{{asset('public/storage/trips'.$trip->image)}}" alt="Main Image" class="img-fluid " height="100px" width="100px">
+          <img src="{{asset('storage/'.$trip->image)}}" alt="Main Image" class="img-fluid " height="100px" width="100px">
           </div>
           <div class="card-body">
           {{-- <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi neque molestiae eius explicabo mollitia tempore reiciendis, vel, sequi.
           </p> --}}
-          <a href="{{route('tripdetail.show',$trip->id)}}" class="btn">Book Now</a>
-          
-              
+          <a href="{{route('tripdetail.show',$trip->id)}}" class="btn">Book Now</a> 
          
         </div>
         
@@ -110,7 +108,7 @@
     <h2>Most visited Places</h2>
   
   </div>
-  <div class="image-container">git
+  <div class="image-container">
     @foreach ($trips as $trip)
       <div class="image">
        
@@ -120,11 +118,12 @@
 
          <h1> {{$trip->title}} </h1>
           <h3>NRP:{{$trip->price_low}} </h3>
-         <img src="{{asset('storage/trips/'.$trip->image)}}" alt="Main Image" class="img-fluid " height="100px" width="100px">
-         <a href="{{route('tripdetail.show',$trip->id)}}" class="btn btn-info ">Detail</a>
+          <img src="{{asset('storage/'.$trip->image)}}" alt="Main Image" class="img-fluid " height="100px" width="100px">
         {{-- @endforeach --}}
         
       </div>
+      <a href="{{route('tripdetail.show',$trip->id)}}" class="btn btn-info ">Detail</a>
+
       @endforeach
       {{-- <div class="image">
         <h1> place name</h1>

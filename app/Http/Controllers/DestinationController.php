@@ -14,6 +14,7 @@ class DestinationController extends Controller
 
     //  print_r($req->input());
        $destination = new Destination;
+       
        $destination ->Full_name = $req->Full_name;
        $destination ->gmail= $req->gmail;
        $destination ->trip_date = $req->trip_date;

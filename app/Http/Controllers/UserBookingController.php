@@ -16,35 +16,22 @@ class UserBookingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Destination $id)
+    public function index(Destination $destination)
     {
-        // $users = User::find(auth()->user()->id);
-        // $destinations = Destination::find($id);
-        // // $users =  User::find(auth()->user()->id);
-        
-        // // $destinations = User::find(auth()->user()->id);
-        // return view('userbooking', compact('users'));
-        
-          
-        //   $destinations =Destination::all();
-        // $destinations=Destination::paginate(10);
-        
-        // $user_id = Auth::user()->id;
-        // $destination_id =$id;
-        // return $destinations = Destination::find($destination_id);
-        // $detination = $destinations->find('active');
-        // $data['data'] = DB::table('users')
-        //             ->join('Full_name','users.id','=','Full_name.user_id');
-
-//  return $user_id;
        
-    //    return $destinations = DB::table('destinations')->select('Full_name')->get();
-        // $name = new $user_name;
-        $user_id = Auth::user()->id;
+          
         
 
-        $destinations =Destination::where('Full_name','swastika rai')->get();
-        return view('userbooking')->with('destinations',$destinations);
+    //    $destinations = DB::table('destinations')->select('gmail')->get();
+        // $destinations =Destination::where('Full_name','swastika rai')->get();
+            
+        
+        //  $user_id = DB::table('destinations')->find($user_id);
+        
+//bhayo?ahh
+        $user = auth()->user();
+        // dd($users->destinations);
+        return view('userbooking')->with('destinations',$user->destinations);
 
     }
 
