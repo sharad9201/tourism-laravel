@@ -25,6 +25,7 @@
           </thead>
         <tbody>
         @foreach ($trips as $trip)
+        {{-- {{dd($trip->image)}} --}}
         <tr>
         <td> {{$trip->id}}</td>
         <td> <img src="{{asset('storage/'.$trip->image)}}" alt="Main Image" class="img-fluid " height="100px" width="100px"> </td>
