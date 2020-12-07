@@ -1,4 +1,4 @@
-s{
+{
     "_readme": [
         "This file locks the dependencies of your project to a known state",
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
@@ -3879,59 +3879,10 @@ s{
                 "laravel-trix",
                 "te7a-houdini"
             ],
-            "time": "2020-11-12T10:48:06+00:00"
-        },
-        {
-            "name": "te7a-houdini/laravel-trix",
-            "version": "2.0.4",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/amaelftah/laravel-trix.git",
-                "reference": "2295ae96aad8b7c427647c84e814c33926eaf074"
+            "support": {
+                "issues": "https://github.com/amaelftah/laravel-trix/issues",
+                "source": "https://github.com/amaelftah/laravel-trix/tree/2.0.4"
             },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/amaelftah/laravel-trix/zipball/2295ae96aad8b7c427647c84e814c33926eaf074",
-                "reference": "2295ae96aad8b7c427647c84e814c33926eaf074",
-                "shasum": ""
-            },
-            "require": {
-                "laravel/framework": "~5.8.0|~6.0|~7.0|~8.0",
-                "php": "^7.1"
-            },
-            "require-dev": {
-                "orchestra/testbench": "^3.5|~4.0|~5.0|~6.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Te7aHoudini\\LaravelTrix\\LaravelTrixServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Te7aHoudini\\LaravelTrix\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Ahmed Abd El Ftah",
-                    "email": "ahmedabdelftah95165@gmail.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "trix editor for laravel inspired by ActionText for rails",
-            "homepage": "https://github.com/te7ahoudini/laravel-trix",
-            "keywords": [
-                "laravel-trix",
-                "te7a-houdini"
-            ],
             "time": "2020-11-12T10:48:06+00:00"
         },
         {
@@ -6311,5 +6262,6 @@ s{
     "platform": {
         "php": "^7.2.5|^8.0"
     },
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
 }
