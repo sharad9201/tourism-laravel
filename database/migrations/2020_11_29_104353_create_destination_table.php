@@ -19,15 +19,15 @@ class CreateDestinationTable extends Migration
             $table->string('Full_name')->unique();
             $table->string('gmail')->unique();
             $table->string('trip_date');
-            $table->biginteger('phone_number')->unique();
+            $table->BigInteger('phone_number')->unique();
             $table->mediumText('extra');
             $table->timestamps();
-            // $table->integer('user_id')->unsigned;
-
+            $table->BigInteger('user_id')->unsigned();
+            $table->foreign('user_id')->references('id')->on('users')->ondelete('cascade');
         });
 
-        // Schema::table('destination', function (Blueprint $table) {
-        //     $table-> foreign('user_id')->reference('id')->On('user')->Ondelete('cascade');
+        // Schema::table('destinations', function (Blueprint $table) {
+        //     $table->foreign('user_id')->references('id')->on('users')->ondelete('cascade');
         // });
     }
 
@@ -38,6 +38,6 @@ class CreateDestinationTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('destination');
+        Schema::dropIfExists('destinations');
     }
 }

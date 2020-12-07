@@ -68,6 +68,9 @@
                                     <a class="dropdown-item" href="{{route('admin.users.index')}}">
                                         User Management
                                     </a>
+                                    <a class="dropdown-item" href="{{route('tripdetail.index')}}">
+                                        trip detail
+                                    </a>
                                     @endcan
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf

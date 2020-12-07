@@ -1,0 +1,29 @@
+.top{
+    background-image: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),url('images/bg.jpg');
+ 	height: 500px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  padding-top:20px; 
+  text-align: center;
+  color: #fff;
+}
+.top img
+{
+	width: 170px;
+	float: left;
+}
+
+.img-wrap img{
+    width: 100%;
+    background: #fff;
+    border: 1px solid #ccc;
+    margin-bottom: 50px;
+    transition: 0.3s;
+}
+.wrap img{
+    min-height: 400px;
+   
+    
+}
