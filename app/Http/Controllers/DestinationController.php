@@ -28,7 +28,7 @@ class DestinationController extends Controller
    public function index(){
       
 
-      $destinations=Destination::paginate(10);
+      $destinations=Destination::paginate(5);
       return view('booking',compact('destinations'));
 
       // $users = User::find(auth()->user()->id);
@@ -36,6 +36,13 @@ class DestinationController extends Controller
       //  return view('booking', compact('destinations'));
 
    }
+   // public function userbook(){
+   //    // $destinations = Destination::all($id);
+   //    $destinations=Destination::paginate(10);
+
+   //    // $users = User::find(auth()->user()->id);
+   //    return view('userbooking',compact('users'));
+   // }
     public function show(Destination $id){
 
       // $destinations = new Destionation;
