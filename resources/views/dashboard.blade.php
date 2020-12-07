@@ -15,7 +15,7 @@
 	<div class="container">
     {{-- <img src="images/logo.png"> --}}
        <a href="{{route('posts.create')}}" class="logout-btn">CREATE POSTS</a>
-       <a href="{{route('booking.index')}}" class="logout-btn">Show My Booking</a>
+       <a href="{{route('userbooking.index')}}" class="logout-btn">Show My Booking</a>
         {{-- <button class="logout-btn"><a  href="{{route('posts.create')}}">{{__'create_posts')}}</button> --}}
         <button class="logout-btn"  href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
          {{ __('Logout') }}
