@@ -5,6 +5,11 @@
 @section('css')
     
 <link rel="stylesheet" type="text/css" href="css/dashboard.css">
+<style>
+  /* .card {
+    width: 280px;
+  } */
+</style>
 @endsection
 
 @section('content')
@@ -19,12 +24,50 @@
 </div>
 </section>
 
-<div class="containerr">
+<div class="container py-4">
 <div class="heading">
   <h1>Destination Booking</h1>
 </div>
 
 <div class="row">
+
+  @foreach ($trips as $trip)
+  <div class="col-lg-4 col-md-6 col-sm-6 my-3">
+    <div class="card">
+      <img src="https://th.bing.com/th/id/OIP.Q03QzwiU0XKCTdiGogMiMAHaDe?w=331&h=164&c=7&o=5&dpr=1.25&pid=1.7" alt="pokhara" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title">{{$trip->title}}</h5>
+        {{-- <p class="card-text">description if needed</p> --}}
+        
+        <a href="{{route('tripdetail.show',$trip->id)}}" class="btn btn-primary">Book now</a>
+      </div>
+    </div>
+  </div>
+  @endforeach  
+
+</div>
+
+<div class="heading"> 
+  <h2>Most visited Places</h2>
+
+</div>
+
+@foreach ($trips as $trip)
+  <div class="col-lg-4 col-md-6 col-sm-6 my-3">
+    <div class="card">
+      <img src="https://th.bing.com/th/id/OIP.Q03QzwiU0XKCTdiGogMiMAHaDe?w=331&h=164&c=7&o=5&dpr=1.25&pid=1.7" alt="pokhara" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title">{{$trip->title}}</h5>
+        {{-- <p class="card-text">description if needed</p> --}}
+        
+        <a href="{{route('tripdetail.show',$trip->id)}}" class="btn btn-primary">Book now</a>
+      </div>
+    </div>
+  </div>
+  @endforeach  
+
+
+{{-- <div class="row">
   @foreach ($trips as $trip)
   <div class="card">
     <div class="card-header">
@@ -53,11 +96,11 @@
         <h3>NRP:{{$trip->price_low}} </h3>
        <img src="{{asset('storage/'.$trip->image)}}" alt="Main Image" class="img-fluid " height="100px" width="100px">
        <a href="{{route('tripdetail.show',$trip->id)}}" class="btn btn-info ">Detail</a>
-      {{-- @endforeach --}}
       
     </div>
     @endforeach
-  </div>
+  </div> --}}
+
 @endsection
 
 @section('footer')

@@ -1,8 +1,8 @@
 <footer class="footer-distributed">
   
     <div class="footer-left">
-        <img src="img/logo.png">
-      <h3>About<span>Hello-nepal</span></h3>
+        {{-- <img src="img/logo.png"> --}}
+      <h3>About <span>Hello-nepal</span></h3>
 
       <p class="footer-links">
         <a href="{{route('dashboard')}}">Home</a>
