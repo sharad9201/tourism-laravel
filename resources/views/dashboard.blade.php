@@ -5,11 +5,6 @@
 @section('css')
     
 <link rel="stylesheet" type="text/css" href="css/dashboard.css">
-<style>
-  /* .card {
-    width: 280px;
-  } */
-</style>
 @endsection
 
 @section('content')
@@ -17,9 +12,9 @@
 <h1>Travel Across The nepal</h1>
 <p>Welcome To Nepal </p>
 <div class="input-group">
-    <input type="text" class="form-control" placeholder="Search city" name="">
+    <input type="text" class="form-control" placeholder="Search city" name="" aria-label="" aria-describedby="basic-addon1">
     <div class="input-group-append">
-    <button type="submit" class="input-group-text btn">Search</button>
+      <button type="submit" class="btn btn-primary btns" style="border-radius: 25px;">Search</button>
     </div>
 </div>
 </section>
@@ -39,7 +34,7 @@
         <h5 class="card-title">{{$trip->title}}</h5>
         {{-- <p class="card-text">description if needed</p> --}}
         
-        <a href="{{route('tripdetail.show',$trip->id)}}" class="btn btn-primary">Book now</a>
+        <a href="{{route('tripdetail.show',$trip->id)}}" class="btn btn-primary br-5">Book now</a>
       </div>
     </div>
   </div>
