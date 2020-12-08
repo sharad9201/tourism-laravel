@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('root');
 
 Auth::routes();
 
@@ -36,6 +36,6 @@ Route::get('tripdetail/{tripdetail}/photo','TripController@photo')->name('tripde
 Route::post('tripdetail/gallery','TripController@photostore')->name('tripdetail.photostore');
 Route::delete('tripdetail/gallery/{deletephoto}','TripController@photodelete')->name('tripdetail.photodelete');
 
-Route::resource('posts','PostsController');
+// Route::resource('posts','PostsController');
 
 Route::get('/dashboard','DashboardController@index')->name('dashboard');
