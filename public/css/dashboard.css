@@ -8,7 +8,7 @@ body {
 
     font-family: arial;
 }
-.header {
+.header-section {
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
         url("images/bg.jpg");
     height: 500px;
@@ -20,7 +20,7 @@ body {
     text-align: center;
     color: #fff;
 }
-.header img {
+.header-section img {
     width: 170px;
     float: left;
 }
@@ -34,12 +34,12 @@ body {
     color: #fff;
     float: right;
 }
-.header h1 {
+.header-section h1 {
     padding-top: 230px;
     padding-bottom: 0;
     font-size: 55px;
 }
-.header p {
+.header-section p {
     margin: 18px 0;
 }
 
@@ -212,30 +212,30 @@ body {
     font: 16px/1.6 Arial, sans-serif;
 }
 
-header {
+header-section {
     text-align: center;
     padding-top: 100px;
     margin-bottom: 190px;
 }
 
-header h1 {
+header-section h1 {
     font: normal 32px/1.5 "Open Sans", sans-serif;
     color: #3f71ae;
     padding-bottom: 16px;
 }
 
-header h2 {
+header-section h2 {
     color: #f05283;
 }
 
-header span {
+header-section span {
     color: #3f71ea;
 }
 
 /* responsive footer */
 
 @media (max-height: 800px) {
-    header {
+    header-section {
         padding-top: 40px;
     }
 }
