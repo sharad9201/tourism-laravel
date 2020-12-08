@@ -102,7 +102,7 @@
                                 <div class="img-wrap" style="background-image: url('sourceimages/traveller1.jpg');">
                                 </div>
                                 <div class="card-body mt-0_6">
-                                    <h4 class="card-title">Adventure</h4>
+                                    <h4 class="card-title">Trek</h4>
                                     <p class="card-text mb-0_4">Lorem ipsum dolor sit amet, consectetur adipisicing
                                         elit.
                                         Voluptatem laboriosam veniam vel distinctio nesciunt saepe aperiam dolorem,
