@@ -3,6 +3,16 @@
 @section('css')
     
 <link rel="stylesheet" type="text/css" href="css/dashboard.css">
+
+<style>
+  .card-img-top{
+    height: 258px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+  }
+</style>
 @endsection
 
 @section('content')
