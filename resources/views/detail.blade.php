@@ -1,20 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detail</title>
-    <!-- CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+@extends('layouts.app')
 
-    <!-- jQuery and JS bundle w/ Popper.js -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+@section('css')
+    <style>
+        .card:hover {
+            box-shadow: 0 20px 25px rgba(0, 0, 0, 0.25);
+        }
+    </style>
+@endsection
 
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container my-4">
+@section('content')
+    <div class="container">
         <img src="http://www.horizontravelindia.com/wp-content/uploads/2017/10/Pokhara.jpg" alt="Main Image" class="img-fluid">
 
         <div class="card p-4 my-4">
@@ -59,12 +54,12 @@
                 <li>Customer care avaiable</li>
                 <li>Hand-picked itineraries</li>
             </ul>
-            <a href="{{ route('form') }}" class="btn btn-secondary text-uppercase btn-lg">book this trip</a>
+            <a href="{{ route('form') }}" class="btn btn-primary text-uppercase btn-lg">book this trip</a>
         </div>
 
-        <div class="about">
+        <div class="about my-5">
             <h2 class="mb-4">About 5 Nights 6 Days Nepal Tour</h2>
-    
+
             <p>
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate esse doloribus enim. Qui nemo quasi, aliquam quaerat itaque voluptatum nostrum minus, accusantium fugit quo officia quas consequuntur ipsum beatae necessitatibus.
                 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero, placeat nisi expedita numquam sapiente at, facere architecto voluptates aliquam in cum laudantium. Officia, libero labore reiciendis id nam accusantium sapiente.
@@ -118,5 +113,8 @@
 
         </div>
     </div>
-</body>
-</html>
+@endsection
+
+@section('footer')
+    @include('layouts.footer')
+@endsection

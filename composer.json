@@ -15,7 +15,8 @@
         "laravel/framework": "^7.29",
         "laravel/tinker": "^2.5",
         "laravel/ui": "2.4",
-        "te7a-houdini/laravel-trix": "^2.0"
+        "te7a-houdini/laravel-trix": "^2.0",
+        "yoeunes/toastr": "^1.2"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

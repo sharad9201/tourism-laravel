@@ -1,57 +1,6 @@
+@extends('layouts.app')
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Index Page</title>
-    <!-- links for css, bootstrap -->
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/main.css">
-    <!-- links for javascript, jquery  -->
-    <script>window.jQuery || document.write('<script src="js/jquery-3.3.1.min.js" defer><\/script>')</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" crossorigin="anonymous"
-        defer></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"
-        defer></script>
-    <script src="js/jquery.main.js" defer></script>
-
-</head>
-
-<body>
-    <header id="header">
-        <div class="container">
-            <nav class="navbar navbar-expand-lg navbar-light d-flex align-items-end">
-                <a class="navbar-brand logo" href="#">Sailour</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse align-items-end" id=" navbarNav">
-                    <ul class="navbar-nav">
-                        <li class="nav-item active px-10 mb-sm-0_5">
-                            <a class="nav-link py-0" href="#">About</a>
-                        </li>
-                        <li class="nav-item px-10 mb-sm-0_5">
-                            <a class="nav-link py-0" href="#">Features</a>
-                        </li>
-                    </ul>
-                    <ul class="navbar-nav w-100 d-flex justify-content-end">
-                        <li class="nav-item px-0_4 mb-sm-0_5">
-                            <a class="nav-link btn-outline-primary" href="{{route('login')}}">Sign In</a>
-                        </li>
-                        <li class="nav-item px-0_4">
-                            <a class="nav-link btn-outline-primary" href="{{ route('register') }}">Sign Up</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-    </header>
-
+@section('content')
     <main id="main">
         <div class="hero-section d-flex" style="background-image: url('sourceimages/traveller nepal.jpg'); ">
             <div class="container ">
@@ -196,11 +145,8 @@
         </div>
 
     </main>
+@endsection
 
-    <footer id=" footer">
-        <div class="top-footer"></div>
-        <div class="base-footer"></div>
-    </footer>
-</body>
-
-</html>
+@section('footer')
+    @include('layouts.footer')
+@endsection

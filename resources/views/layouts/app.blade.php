@@ -13,17 +13,41 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
     @yield("scripts") 
     <!-- Fonts -->
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Dokdo" rel="stylesheet">
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+
+    <!-- links for css, bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/footer.css">
+    <!-- links for javascript, jquery  -->
+    <script>window.jQuery || document.write('<script src="js/jquery-3.3.1.min.js" defer><\/script>')</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" crossorigin="anonymous"
+        defer></script>
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://fonts.googleapis.com/css?family=Dokdo" rel="stylesheet">
+    {{-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"
+        defer></script> --}}
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="js/jquery.main.js" defer></script>
+    
+
+    
     @trixassets
+    @toastr_css
     @yield("css")
 </head>
 <body>
+    
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        {{-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -83,10 +107,13 @@
                     </ul>
                 </div>
             </div>
-        </nav>
-
+        </nav> --}}
+        @include('layouts.navbar')
+        @yield('gallery')
         <main class="py-4">
+            
             @yield('content')
+            
             <div class="container">
 
                 <div class="row">
@@ -101,7 +128,12 @@
                     </div>
             
                 </div>
+            </div>
         </main>
     </div>
+    @yield('footer')
 </body>
+@jquery
+@toastr_js
+@toastr_render
 </html>

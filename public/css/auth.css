@@ -1,0 +1,158 @@
+/* body
+{
+  margin: 0;
+  padding: 0; 
+  font-family: sans-serif;
+} */
+.title {
+    text-align: center;
+    padding: 20px 0 20px;
+}
+
+.title h1 {
+    margin: 0;
+    padding: 0;
+    color: #1bb626;
+    text-transform: uppercase;
+    font-size: 36px;
+}
+.container-box {
+    width: 50%;
+    height: 400px;
+    background: #fff;
+    margin: 0 auto;
+    border: 2px solid;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+.container-box .left {
+    float: left;
+    width: 50%;
+    height: 400px;
+    background: url(images/1.jpg);
+    background-size: cover;
+    box-sizing: border-box;
+}
+.container-box .right {
+    float: right;
+    width: 50%;
+    height: 400px;
+    box-sizing: border-box;
+}
+.formBox {
+    width: 100%;
+    padding: 80px 40px;
+    box-sizing: border-box;
+    height: 400px;
+    background: #ffffff;
+}
+.formBox p {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    color: #1bb626;
+}
+.formBox input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+.formBox input[type="email"],
+.formBox input[type="password"],
+.formBox input[type="text"] {
+    border: none;
+    border-bottom: 2px solid #1bb626;
+    outline: none;
+    height: 40px;
+}
+.formBox input[type="email"]:focus,
+.formBox input[type="password"]:focus .formBox input[type="text"]:focus {
+    border-bottom: 2px solid #262626;
+}
+
+.formBox input[type="submit"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    color: #ffffff;
+    background: #1bb626;
+    cursor: pointer;
+}
+
+.formBox input[type="submit"]:hover {
+    background: #009900;
+}
+
+/* .formBox a {
+    color: #262626;
+    font-size: 15px;
+    font-weight: bold;
+} */
+
+/*registration*/
+
+.reg-container-box {
+    width: 50%;
+    height: 500px;
+    background: #fff;
+    margin: 0 auto;
+    border: 2px solid;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+.reg-container-box .reg-left {
+    float: left;
+    width: 50%;
+    height: 500px;
+    background: url(images/background.jpg);
+    background-size: cover;
+    box-sizing: border-box;
+}
+.reg-container-box .reg-right {
+    float: right;
+    width: 50%;
+    height: 500px;
+    box-sizing: border-box;
+}
+.reg-formBox {
+    width: 100%;
+    padding: 80px 40px;
+    box-sizing: border-box;
+    height: 500px;
+    background: #ffffff;
+}
+.reg-formBox p {
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    color: #1bb626;
+}
+.reg-formBox input {
+    width: 100%;
+    margin-bottom: 20px;
+}
+.reg-formBox input[type="email"],
+.reg-formBox input[type="password"],
+.reg-formBox input[type="text"] {
+    border: none;
+    border-bottom: 2px solid #1bb626;
+    outline: none;
+    height: 40px;
+}
+.reg-formBox input[type="email"]:focus,
+.reg-formBox
+    input[type="password"]:focus
+    .reg-formBox
+    input[type="text"]:focus {
+    border-bottom: 2px solid #262626;
+}
+
+.reg-formBox input[type="submit"] {
+    border: none;
+    outline: none;
+    height: 40px;
+    color: #ffffff;
+    background: #1bb626;
+    cursor: pointer;
+}
+
+.reg-formBox input[type="submit"]:hover {
+    background: #009900;
+}
