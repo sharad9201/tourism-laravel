@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html>
 <link rel="stylesheet" type="text/css" href="css/dashboard.css">
+<link rel="stylesheet" type="text/css" href="css/footer.css">
 <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://fonts.googleapis.com/css?family=Dokdo" rel="stylesheet">
 
@@ -100,7 +101,7 @@
     <h2>Most visited Places</h2>
   
   </div>
-  <div class="image-container">git
+  <div class="image-container">
     @foreach ($trips as $trip)
       <div class="image">
        
