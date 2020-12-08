@@ -407,7 +407,7 @@ $(document).ready(function (e) {
 });
 </script>
 @endsection
-
+{{-- 
 @section('css')
 <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"  media="screen">
-@endsection
+@endsection --}}
