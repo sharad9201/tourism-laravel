@@ -28,7 +28,7 @@ class CreateTripsTable extends Migration
             $table->integer('night');
             $table->text('included');
             $table->text('not_included');
-            $table->string('image');
+            
             $table->timestamps();
         });
     }

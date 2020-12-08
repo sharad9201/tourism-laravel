@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Trip;
 use App\Image;
 use DB;
+use Storage;
 class TripController extends Controller
 {
     /**
@@ -42,7 +43,8 @@ class TripController extends Controller
     public function store(Request $request)
     {
         //
-    //  / dd($request);
+    
+
         $this->validate($request,[
             'image'        =>  'required|image|mimes:jpeg,png,jpg,gif|max:2048',
             'title'=>'required|unique:trips',
@@ -54,6 +56,7 @@ class TripController extends Controller
             'post-trixFields.know_before_booking'=>'required',
             'post-trixFields.itenary'=>'required',
             'post-trixFields.highlight'=>'required',
+            
             'day'=>'required| integer',
             'night'=>'required|integer',
             'post-trixFields.included'=>'required',
@@ -63,6 +66,7 @@ class TripController extends Controller
         
         $img=$request->image->store('trips'); 
         $transport=serialize($request->transport);
+        
         $trip =new Trip;
         
         $trip->title=$request->title;
@@ -80,7 +84,7 @@ class TripController extends Controller
             $trip->not_included=$request["post-trixFields"]["not_included"];
             
             $trip->save();
-           
+          
             $image=new Image();
             $image->trip_id=$trip->id;
            
@@ -213,7 +217,11 @@ class TripController extends Controller
        
         $image=Image::find($id);
         
-        $image->delete();
+            Storage::delete($image->image   );
+            
+        
+       
+       $image->forceDelete();
         toastr()->success('Photo Delated successfully ');
         return redirect(route("tripdetail.photo",$request->trip_id));
     }
