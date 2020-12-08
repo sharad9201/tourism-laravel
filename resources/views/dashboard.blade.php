@@ -153,7 +153,6 @@
   <div class="image-container">
     @foreach ($trips as $trip)
       <div class="image">
-
         <h1> {{$trip->title}} </h1>
         <h3>NRP:{{$trip->price_low}} </h3>
        <img src="{{asset('storage/'.$trip->image)}}" alt="Main Image" class="img-fluid " height="100px" width="100px">
@@ -165,7 +164,6 @@
         
       {{-- </div>
       <a href="{{route('tripdetail.show',$trip->id)}}" class="btn btn-info ">Detail</a>
-
       @endforeach --}}
       {{-- <div class="image">
         <h1> place name</h1>
