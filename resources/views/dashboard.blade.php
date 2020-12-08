@@ -29,7 +29,7 @@
   @foreach ($trips as $trip)
   <div class="col-lg-4 col-md-6 col-sm-6 my-3">
     <div class="card">
-      <img src="https://th.bing.com/th/id/OIP.Q03QzwiU0XKCTdiGogMiMAHaDe?w=331&h=164&c=7&o=5&dpr=1.25&pid=1.7" alt="pokhara" class="card-img-top">
+      <img src="{{asset($trip->image)}}" alt="pokhara" class="card-img-top">
       <div class="card-body">
         <h5 class="card-title">{{$trip->title}}</h5>
         {{-- <p class="card-text">description if needed</p> --}}
@@ -39,7 +39,17 @@
     </div>
   </div>
   @endforeach  
-
+  <div class="col-lg-4 col-md-6 col-sm-6 my-3">
+    <div class="card">
+      <img src="https://th.bing.com/th/id/OIP.Q03QzwiU0XKCTdiGogMiMAHaDe?w=331&h=164&c=7&o=5&dpr=1.25&pid=1.7" alt="pokhara" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title">{{$trip->title}}</h5>
+        {{-- <p class="card-text">description if needed</p> --}}
+        
+        <a href="{{route('tripdetail.show',$trip->id)}}" class="btn btn-primary br-5">Book now</a>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="heading"> 
@@ -50,7 +60,7 @@
 @foreach ($trips as $trip)
   <div class="col-lg-4 col-md-6 col-sm-6 my-3">
     <div class="card">
-      <img src="https://th.bing.com/th/id/OIP.Q03QzwiU0XKCTdiGogMiMAHaDe?w=331&h=164&c=7&o=5&dpr=1.25&pid=1.7" alt="pokhara" class="card-img-top">
+      <img src="{{asset($trip->image)}}" alt="pokhara" class="card-img-top">
       <div class="card-body">
         <h5 class="card-title">{{$trip->title}}</h5>
         {{-- <p class="card-text">description if needed</p> --}}

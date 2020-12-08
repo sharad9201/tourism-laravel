@@ -2,7 +2,7 @@
 
 @extends('layouts.app')
 @section('dash')
-    <h3>dashboard</h3>
+    {{-- <h3>dashboard</h3>
 
     <div class="list-group list-group-flush">
       <li  class="list-group-item">
@@ -13,6 +13,14 @@
     <li  class="list-group-item">
       <a href="{{route("tripdetail.index")}}"  class="text-center">All Package</a>
     </li>
+    </div> --}}
+    <h3>Dashboard</h3>
+  
+    <div class="card text-center">
+      <a href="{{route("tripdetail.create")}}" class="card-header  text-white bg-primary ">Add Package</a>
+    </div>
+    <div class="card text-center">
+      <a href="{{route("tripdetail.index")}}" class="card-header text-white bg-primary ">All Package</a>
     </div>
 @endsection
 @section('form')
@@ -84,3 +92,8 @@
 
      
 @endsection
+
+
+{{-- @section('css')
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"  media="screen">
+@endsection --}}
