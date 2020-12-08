@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Trip;
 use App\Post;
+use App\Destination;
 
 class DashboardController extends Controller
 {
@@ -18,6 +19,7 @@ class DashboardController extends Controller
         //
         $trips=Trip::paginate(4);
         return view('dashboard',compact('trips'));
+        
     }
 
     /**
@@ -39,6 +41,7 @@ class DashboardController extends Controller
     public function store(Request $request)
     {
         //
+        
     }
 
     /**
@@ -50,6 +53,10 @@ class DashboardController extends Controller
     public function show($id)
     {
         //
+        // // $trip= User::find($id);
+        // // $trip= Trip::find($id);
+        // $destinations = Destination::all();
+        // return view('booking')->with("destinations",$destinations);
     }
 
     /**

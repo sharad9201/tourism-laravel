@@ -41,6 +41,7 @@
           </thead>
         <tbody>
         @foreach ($trips as $trip)
+        {{-- {{dd($trip->image)}} --}}
         <tr>
         <td> {{$trip->id}}</td>
         @php

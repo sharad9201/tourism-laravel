@@ -3,22 +3,36 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Post;
+use App\User;
+Use App\Destination;
+use App\Trip;
 use DB;
+use Auth;
 
-class PostsController extends Controller
+class UserBookingController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Destination $destination)
     {
-        //
-        $posts = Post::orderBy('created_at','desc')->paginate(2); 
-        return view ('welcome')->with('posts',$posts);
-        // return redirect('/welcome')->with('posts',$posts);
+       
+          
+        
+
+    //    $destinations = DB::table('destinations')->select('gmail')->get();
+        // $destinations =Destination::where('Full_name','swastika rai')->get();
+            
+        
+        //  $user_id = DB::table('destinations')->find($user_id);
+        
+//bhayo?ahh
+        $user = auth()->user();
+        // dd($users->destinations);
+        return view('userbooking')->with('destinations',$user->destinations);
+
     }
 
     /**
@@ -29,7 +43,6 @@ class PostsController extends Controller
     public function create()
     {
         //
-        return view ('posts.create');
     }
 
     /**
@@ -41,18 +54,6 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         //
-        $this->validate($request, [
-            'title' => 'required',
-            'body' => 'required'
-        ]);
-        //Create Post
-
-        $post = new Post;
-        $post->title = $request->input('title');
-        $post->body = $request->input('body');
-        $post->save();
-        return redirect('/welcome')->with('success','Post Created');
-
     }
 
     /**
@@ -64,9 +65,6 @@ class PostsController extends Controller
     public function show($id)
     {
         //
-        
-        $post = Post::find($id);
-        return view('posts.show')->with('post',$post);
     }
 
     /**
@@ -78,8 +76,6 @@ class PostsController extends Controller
     public function edit($id)
     {
         //
-        $post = Post::find($id);
-        return view('posts.edit')->with('post',$post);
     }
 
     /**
@@ -92,18 +88,6 @@ class PostsController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $this->validate($request, [
-            'title' => 'required',
-            'body' => 'required'
-        ]);
-        //Create Post
-
-        $post = Post::find($id);
-        $post->title = $request->input('title');
-        $post->body = $request->input('body');
-        $post->save();
-        return redirect('/')->with('success','Post Updated');
-
     }
 
     /**
@@ -115,8 +99,5 @@ class PostsController extends Controller
     public function destroy($id)
     {
         //
-        $post = Post::find($id);
-        $post->delete();
-        return redirect('/welcome')->with('success','Post Deleted');
     }
 }
