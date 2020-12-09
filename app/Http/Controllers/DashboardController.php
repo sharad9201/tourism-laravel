@@ -16,7 +16,7 @@ class DashboardController extends Controller
     public function index()
     {
         //
-        $trips=Trip::paginate(4);
+        $trips=Trip::all();
         return view('dashboard',compact('trips'));
     }
 
