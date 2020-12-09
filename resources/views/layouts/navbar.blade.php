@@ -17,6 +17,11 @@
                         <li class="nav-item px-10 mb-sm-0_5">
                             <a class="nav-link py-0" href="#">Features</a>
                         </li>
+                        <li class="nav-item px-10 mb-sm-0_5">                            
+                            <a class="nav-link py-0" href="{{route('userbooking.index')}}">
+                                detail
+                            </a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

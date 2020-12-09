@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Trip;
 use App\Post;
 use App\Destination;
+use App\Image;
 
 class DashboardController extends Controller
 {
@@ -17,7 +18,9 @@ class DashboardController extends Controller
     public function index()
     {
         //
-        $trips=Trip::paginate(4);
+        $trips=Trip::all();
+        $images=Image::all();
+        // dd($images);
         return view('dashboard',compact('trips'));
         
     }

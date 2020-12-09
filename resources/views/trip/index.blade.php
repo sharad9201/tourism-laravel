@@ -29,7 +29,7 @@
     {!! $trips->links() !!}
   </div>
   <div class="table-responsive">
-    <table class="table table-dark">
+    <table class="table">
         <thead>
             <tr>
               <th scope="col">SN</th>

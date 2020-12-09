@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Destination;
 use App\db;
-
+use App\Trip;
 class DestinationController extends Controller
 {
 

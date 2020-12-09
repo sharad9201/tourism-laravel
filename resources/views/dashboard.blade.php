@@ -10,7 +10,6 @@
     width: 100%;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
   }
 </style>
 @endsection
@@ -46,7 +45,8 @@
       </div>
     </div>
   </div>
-  @endforeach  
+  @endforeach
+
   <div class="col-lg-4 col-md-6 col-sm-6 my-3">
     <div class="card">
       <img src="https://th.bing.com/th/id/OIP.Q03QzwiU0XKCTdiGogMiMAHaDe?w=331&h=164&c=7&o=5&dpr=1.25&pid=1.7" alt="pokhara" class="card-img-top">
