@@ -9,15 +9,16 @@ class Destination extends Model
 {
     //
     
-    // protected $destination = 'destination';
+    //  protected $table = 'destination';
 
     public $primaryKey = 'destination_id';
 
     public $timestamps = true;
     
-    // public function users(){
-    //     return $this->belongsToMany('App\User');
-    // }
+    public function users(){
+        return $this->belongsToMany('App\User');
+    }
+    
     // public function hasAnyUsers($users){
     //     if($this->users()->whereIn('gmail_id',$users)->first()){
     //         return true;

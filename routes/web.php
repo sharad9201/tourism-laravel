@@ -39,3 +39,6 @@ Route::delete('tripdetail/gallery/{deletephoto}','TripController@photodelete')->
 // Route::resource('posts','PostsController');
 
 Route::get('/dashboard','DashboardController@index')->name('dashboard');
+Route::resource('booking','DestinationController',['except'=>['edit','create','store','destroy']]);
+// Route::get('/userbooking','DestinationController@userbook')->name('userbooking');
+Route::resource('userbooking','UserBookingController',['except'=>['edit','create','store','destroy']]);
