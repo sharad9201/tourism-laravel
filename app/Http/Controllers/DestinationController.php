@@ -48,7 +48,7 @@ class DestinationController extends Controller
 
       // $destinations = new Destionation;
       $destinations = Destination::find($id);
-      return view('booking')->with("destinations",$destination);
+      return view('booking')->with("destinations",$destinations);
    }
 
   
