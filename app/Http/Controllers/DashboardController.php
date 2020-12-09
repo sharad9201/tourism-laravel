@@ -20,7 +20,7 @@ class DashboardController extends Controller
         //
         $trips=Trip::all();
         $images=Image::all();
-        // dd($images);
+        // /dd($images);
         return view('dashboard',compact('trips','images'));
         
     }
