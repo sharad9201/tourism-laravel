@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Trip;
 
+use App\Image;
+use DB;
 class FormController extends Controller
 {
     /**
@@ -14,6 +17,7 @@ class FormController extends Controller
     public function index()
     {
         //
+         $trip= Trip::find($id);
         return view('form');
     }
 

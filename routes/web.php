@@ -34,7 +34,7 @@ Route::post('submit','DestinationController@save');
 Route::resource('tripdetail','TripController');
 Route::get('/dashboard','DashboardController@index')->name('dashboard');
 Route::resource('booking','DestinationController',['except'=>['edit','create','store','destroy']]);
-// Route::get('/userbooking','DestinationController@userbook')->name('userbooking');
+Route::get('/userbooking','DestinationController@userbook')->name('userbooking');
 Route::resource('userbooking','UserBookingController',['except'=>['edit','create','store','destroy']]);
 Route::get('tripdetail/{tripdetail}/photo','TripController@photo')->name('tripdetail.photo');
 Route::post('tripdetail/gallery','TripController@photostore')->name('tripdetail.photostore');

@@ -14,6 +14,10 @@
             <input class="form-control" placeholder="E-mail" type="email" name="gmail" id="gmail">
         </div>
         <div class="form-group">
+            <label for="gmail">Your Destination</label>
+            <input class="form-control" placeholder="Destination" type="email" name="Destination" id="Destination">
+        </div>
+        <div class="form-group">
             <label for="date">Trip Date</label>
             <input class="form-control" type="text" name="trip_date" id="trip_date">
         </div>
