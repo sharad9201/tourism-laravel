@@ -2,34 +2,68 @@
 
 @section('content')
     <main id="main">
-        <div class="hero-section d-flex">
-            <div class="container ">
-                <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
-                    <div class="carousel-inner">
-                      <div class="carousel-item active">
-                        <img src="sourceimages/traveller nepal.jpg" class="d-block w-100" alt="...">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="sourceimages/traveller nepal.jpg" class="d-block w-100" alt="...">
-                      </div>
-                      <div class="carousel-item">
-                        <img src="sourceimages/traveller nepal.jpg" class="d-block w-100" alt="...">
-                      </div>
+        @can('update', Model::class)
+            
+        @endcan
+        <div class="main-wrapper">
+           
+
+            
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="text-wrapper">
+                        <h1 >
+                            Think about the
+                            Traveler Way
+                        </h1>
+                        <p>
+                            Talk To Our Experts and Get Your Dream Home Done. If you dream
+                            of designing a new home that takes full advantage of the unique
+                            geography and views of land that you love Talk To Our Experts
+                            and Get Your Dream Home Done. If you dream of designing a new
+                        </p>
+                   
+                    <a href="#" class="btn btn-primary rounded-0 px-15 py-0_5">Explore now</a>
                     </div>
-                    <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Next</span>
-                    </a>
+                  <div class="carousel-item active">
+                  <img src="{{url('sourceimages/traveller nepal.jpg')}}" class="d-block w-100" alt="...">
                   </div>
-                  
-
-
+                  <div class="carousel-item">
+                    <img src="{{url('sourceimages/traveller1.jpg')}}" class="d-block w-100" alt="...">
+                  </div>
+                  <div class="carousel-item">
+                    <img src="{{url('sourceimages/1.jpg')}}" class="d-block w-100" alt="...">
+                  </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              
             </div>
         </div>
+    
+        {{-- <div class="hero-section d-flex" style="background-image: url('sourceimages/traveller nepal.jpg'); ">
+            <div class="container ">
+                <div class="text-wrap text-white">
+                    <h1>
+                        Think about the
+                        Traveler Way
+                    </h1>
+                    <p>
+                        Talk To Our Experts and Get Your Dream Home Done. If you dream
+                        of designing a new home that takes full advantage of the unique
+                        geography and views of land that you love Talk To Our Experts
+                        and Get Your Dream Home Done. If you dream of designing a new
+                    </p>
+                </div>
+                <a href="#" class="btn btn-primary rounded-0 px-15 py-0_5">Explore now</a>
+            </div>
+        </div> --}}
 
         <div class="our-services d-flex mt-15">
             <div class="container">
@@ -160,4 +194,22 @@
 
 @section('footer')
     @include('layouts.footer')
+@endsection
+
+@section('css')
+<style>
+.carousel-inner{
+    position: relative;
+}
+
+.text-wrapper{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 99;
+    margin:30%;
+    
+}
+
+</style>
 @endsection
