@@ -21,7 +21,7 @@
         <div class="title m-4">
             <div class="row">
                 <div class="col-md-8">
-    <h2 class="text-center"> Image Gallery of </h2>
+    <h2 class="text-center"> Image Gallery of Carousel</h2>
 <h4 class="text-center">Add Delete section</h4>
 </div>
 <div class="col-md-4">

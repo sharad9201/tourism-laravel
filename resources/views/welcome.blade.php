@@ -10,8 +10,8 @@
     </div>
         @endcan 
         <div class="main-wrapper">
-            
-            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+           
+            <div id="carouselExampleControls"  class="carousel slide z-depth-1-half" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="text-wrapper">
                         <h1 >
@@ -145,11 +145,19 @@
                 </div>
             </div>
         </div>
-
+       
         <div class="question mt-30">
             <div class="row two-column">
+                
                 <div class="col-sm-12 col-md-6 img-wrap"
-                    style="background-image: url('sourceimages/mustang nepal.jpg');"></div>
+                    style="background-image: url('sourceimages/mustang nepal.jpg');">
+                    @can('update-photo',$images)
+        
+                    <a href="/photo" class="btn btn-primary rounded-0 px-15 py-0_5 float-left"> Edit <i class="fas fa-edit"></i></a>
+            
+                @endcan 
+                </div>
+                
                 <div class="colsm-12 col-md-6">
                     <div class="text-wrap p-45">
                         <h2 class="my-30">Why Nepal?</h2>
@@ -225,6 +233,9 @@
     margin:30%;
     
 }
-
+.carousel-inner{
+  width:100%;
+  max-height: 750px !important;
+}
 </style>
 @endsection
