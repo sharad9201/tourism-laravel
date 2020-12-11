@@ -14,10 +14,10 @@
       <a href="{{route("tripdetail.index")}}"  class="text-center">All Package</a>
     </li>
     </div> --}}
-    <h3>Dashboard</h3>
+    <h3>dashboard</h3>
   
     <div class="card text-center">
-      <a href="{{route("tripdetail.create")}}" class="card-header  text-white bg-primary ">Add Package</a>
+      <a href="{{route("tripdetail.create")}}" class="card-header text-white bg-primary ">Add Package</a>
     </div>
     <div class="card text-center">
       <a href="{{route("tripdetail.index")}}" class="card-header text-white bg-primary ">All Package</a>
