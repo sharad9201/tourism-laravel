@@ -63,4 +63,4 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
      <input type="submit"> </form> </body> </html>
  ## for detail about Trix-laravel follow this link
  <a href="https://github.com/amaelftah/laravel-trix">trix docs</a>
- 
+ ## for font awesome easy setup go to this link <a href="https://laracasts.com/discuss/channels/guides/laravel-font-awesome-5-how-to-install">Font awesome setup link</a>
