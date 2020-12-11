@@ -24,42 +24,35 @@
   <h1>Destination Booking</h1>
 </div>
 
-<div class="row">
-  @php
-  $count=0; 
- @endphp
-  @foreach ($trips as $trip)
-  @if ($trip->id==$image->trip_id and $count==0)
-  <div class="col-lg-4 col-md-6 col-sm-6 my-3">
-    <div class="card">
-     {{$trip->image}}
-      <img src="{{asset('storage/'.$trip->image)}}" alt="pokhara" class="card-img-top">
-      <div class="card-body">
-        <h5 class="card-title">{{$trip->title}}</h5>
-        {{-- <p class="card-text">description if needed</p> --}}
-        
-        <a href="{{route('tripdetail.show',$trip->id)}}" class="btn btn-primary br-5">Book now</a>
-      </div>
-    </div>
+
+  <div class="row">
+    @foreach($trips as $trip)
     @php
-            $count=1
-        @endphp
-    @endif
-  </div>
-   
-  <div class="col-lg-4 col-md-6 col-sm-6 my-3">
-    <div class="card">
-      <img src="https://th.bing.com/th/id/OIP.Q03QzwiU0XKCTdiGogMiMAHaDe?w=331&h=164&c=7&o=5&dpr=1.25&pid=1.7" alt="pokhara" class="card-img-top">
-      <div class="card-body">
-        <h5 class="card-title">{{$trip->title}}</h5>
-        {{-- <p class="card-text">description if needed</p> --}}
-        
-        <a href="{{route('tripdetail.show',$trip->id)}}" class="btn btn-primary br-5">Book now</a>
+      $count=0; 
+      @endphp
+      @foreach ($images as $image)
+      
+      @if ($trip->id==$image->trip_id and $count==0)
+     
+      
+      <div class="col-lg-4 col-md-6 col-sm-6 my-3">
+        <div class="card">
+          <img src="{{asset('storage/'.$image->image)}}" alt="pokhara" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">{{$trip->title}}</h5>
+            {{-- <p class="card-text">description if needed</p> --}}
+            
+            <a href="{{route('tripdetail.show',$trip->id)}}" class="btn btn-primary br-5">Book now</a>
+     
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
-@endforeach 
+      @php
+      $count=1
+     @endphp
+     @endif
+      @endforeach
+      @endforeach 
 <div class="heading"> 
   <h2>Most visited Places</h2>
 
