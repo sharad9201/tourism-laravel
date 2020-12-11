@@ -77,19 +77,33 @@
 
 </div>
 
-@foreach ($trips as $trip)
+@foreach($trips as $trip)
+@php
+  $count=0; 
+  @endphp
+  @foreach ($images as $image)
+  
+  @if ($trip->id==$image->trip_id and $count==0)
+ 
+  
   <div class="col-lg-4 col-md-6 col-sm-6 my-3">
     <div class="card">
-      <img src="{{asset($trip->image)}}" alt="pokhara" class="card-img-top">
+      <img src="{{asset('storage/'.$image->image)}}" alt="pokhara" class="card-img-top">
       <div class="card-body">
         <h5 class="card-title">{{$trip->title}}</h5>
         {{-- <p class="card-text">description if needed</p> --}}
         
-        <a href="{{route('tripdetail.show',$trip->id)}}" class="btn btn-primary">Book now</a>
+        <a href="{{route('tripdetail.show',$trip->id)}}" class="btn btn-primary br-5">Book now</a>
+ 
       </div>
     </div>
   </div>
-  @endforeach  
+  @php
+  $count=1
+ @endphp
+ @endif
+  @endforeach
+  @endforeach
 
 
 {{-- <div class="row">
