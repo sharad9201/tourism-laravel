@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
-
+use App\Image;
 class AuthServiceProvider extends ServiceProvider
 {
     /**
@@ -39,7 +39,10 @@ class AuthServiceProvider extends ServiceProvider
 
         });
 
-        
+        Gate::define('update-photo',function ($user)
+        {
+            return $user->hasRole('admin');
+        });
 
         //
     }

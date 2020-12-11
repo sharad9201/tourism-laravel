@@ -2,14 +2,14 @@
 
 @section('content')
     <main id="main">
-        @can('update', Model::class)
+        
+        @can('update-photo',$images)
+        
             
-        @endcan
+            <a href="/photo" class="btn btn-primary rounded-0 px-15 py-0_5 float-right"> Edit <i class="fas fa-edit"></i></a>
+    </div>
+        @endcan 
         <div class="main-wrapper">
-           
-            @if (Auth::user->can('edit-users',))
-                
-            @endif
             
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
@@ -27,15 +27,28 @@
                    
                     <a href="#" class="btn btn-primary rounded-0 px-15 py-0_5">Explore now</a>
                     </div>
-                  <div class="carousel-item active">
-                  <img src="{{url('sourceimages/traveller nepal.jpg')}}" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="{{url('sourceimages/traveller1.jpg')}}" class="d-block w-100" alt="...">
-                  </div>
-                  <div class="carousel-item">
-                    <img src="{{url('sourceimages/1.jpg')}}" class="d-block w-100" alt="...">
-                  </div>
+
+                    @php
+                      $pos=0;
+                   @endphp
+
+                    @foreach ($images as $image)
+                    @if ($pos==0)
+                    <div class="carousel-item active">
+                    <img src="{{asset('storage/'.$image->image)}}" class="d-block w-100" alt="...">
+                    </div>
+                    @php
+                  $pos=$pos+1;
+      
+                  @endphp
+                    @else
+                    <div class="carousel-item">
+                        <img src="{{asset('storage/'.$image->image)}}" class="d-block w-100" alt="...">
+                        </div>
+                    @endif
+                @endforeach
+                  
+                 
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -48,7 +61,7 @@
               
             </div>
         </div>
-    
+        
         {{-- <div class="hero-section d-flex" style="background-image: url('sourceimages/traveller nepal.jpg'); ">
             <div class="container ">
                 <div class="text-wrap text-white">

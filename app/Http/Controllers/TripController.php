@@ -217,7 +217,7 @@ class TripController extends Controller
        
         $image=Image::find($id);
         
-            Storage::delete($image->image   );
+            Storage::delete($image->image);
             
         
        

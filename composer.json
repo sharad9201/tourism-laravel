@@ -15,6 +15,7 @@
         "laravel/framework": "^7.29",
         "laravel/tinker": "^2.5",
         "laravel/ui": "2.4",
+        "nothingworks/blade-svg": "^0.5.1",
         "te7a-houdini/laravel-trix": "^2.0",
         "yoeunes/toastr": "^1.2"
     },
