@@ -8,10 +8,11 @@
     <img src="{{asset('storage/'.$trip->image)}}" alt="Main Image" class="img-fluid"> 
  --}}
  @foreach($destinations as $destination )
+ {{-- @foreach($trips as $trip) --}}
 {{-- @foreach ($destinations as $destination ) --}}
 <div class="card p-4 my-4">
     {{-- {{dd($destinations)}} --}}
-
+    {{-- {{dd($destination->trip)}} --}}
     <h2>Trip Facts</h2>
     
     <div class="row"> 
@@ -20,6 +21,9 @@
         </div>
         <div class="col-lg-4 col-md-6 col-sm-12">
             <p class="m-1">Phone: <span class="font-weight-bold">{{$destination->phone_number}}</span></p>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <p class="m-1">Destination: <span class="font-weight-bold">{{$destination->trip->destination}}</span></p>
         </div>
         <div class="col-lg-4 col-md-6 col-sm-12">
             <p class="m-1">Email: <span class="font-weight-bold">{{$destination->gmail}}</span></p>
@@ -49,8 +53,8 @@
     </div>
     
 </div>
+{{-- @endforeach --}}
 @endforeach
-
     
 
     {{-- <div class="card p-4">

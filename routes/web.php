@@ -27,9 +27,9 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
     Route::resource('/users','UsersController',['except'=>['show','create','store']]);
 });
 
-Route::get('/form','FormController@index')->name('form');
+Route::get('/form/{id}','FormController@index')->name('form');
 Route::get('/detail','DetailsController@index')->name('detail');
-Route::post('submit','DestinationController@save');
+Route::post('submit','DestinationController@save')->name('destination.submit');
 
 Route::resource('tripdetail','TripController');
 Route::get('/dashboard','DashboardController@index')->name('dashboard');

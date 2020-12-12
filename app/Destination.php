@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 Use App\User;
+use App\Trip;
 
 class Destination extends Model
 {
@@ -17,6 +18,10 @@ class Destination extends Model
     
     public function users(){
         return $this->belongsToMany('App\User');
+    }
+   
+    public function trip(){
+        return $this->belongsTo('App\Trip');
     }
     
     // public function hasAnyUsers($users){

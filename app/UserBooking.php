@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Trip;
 
 class UserBooking extends Model
 {
@@ -11,4 +12,7 @@ class UserBooking extends Model
     // {
     //     return $this->belongsToMany('App\Role', 'role_user_table', 'user_id', 'role_id','destination_id');
     // }
+    public function trip(){
+        return $this->belongsTo(Post::class,'id');
+    }
 }

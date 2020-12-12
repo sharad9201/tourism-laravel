@@ -21,8 +21,12 @@ class CreateDestinationTable extends Migration
             $table->string('trip_date');
             $table->BigInteger('phone_number')->unique();
             $table->mediumText('extra');
-            $table->string('destination');
+            // $table->string('destination');
             $table->timestamps();
+            $table->bigInteger('trip_id')->unsigned();
+            $table->foreign('trip_id')->references('id')->on('trips')->ondelete('cascade');
+
+            // $table->string('destination');
             $table->BigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->ondelete('cascade');
         });

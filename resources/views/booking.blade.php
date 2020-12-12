@@ -3,6 +3,7 @@
 @section('index')
 @can('edit-users')
 @foreach ($destinations as $destination )
+{{-- @foreach ($trips as $trip) --}}
 <div class="container my-4">
     {{-- <h1> {{$trip->title}}</h1> 
     <img src="{{asset('storage/'.$trip->image)}}" alt="Main Image" class="img-fluid">  --}}
@@ -20,6 +21,9 @@
             </div>
             <div class="col-lg-4 col-md-6 col-sm-12">
                 <p class="m-1">Phone Number: <span class="font-weight-bold">{{$destination->phone_number}}</span></p>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <p class="m-1">Destination: <span class="font-weight-bold">{{$destination->trip->destination}}</span></p>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <p class="m-1">Extra: <span class="font-weight-bold">{{$destination->extra}}</span></p>
@@ -78,6 +82,7 @@
   
    
 </div> 
+{{-- @endforeach --}}
 @endforeach
 @endcan
 

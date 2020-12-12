@@ -33,6 +33,8 @@ class UserBookingController extends Controller
         $user = auth()->user();
         // dd($users->destinations);
         return view('userbooking')->with('destinations',$user->destinations);
+        // return view('form')->with('trips',$trips->destinations);
+
 
     }
 

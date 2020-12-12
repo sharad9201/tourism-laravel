@@ -60,4 +60,7 @@ class User extends Authenticatable
     public function destinations(){
         return $this->hasMany('App\Destination');
     }
+    public function trip(){
+        return $this->belongsToMany(Post::class,'id');
+    }
 }
