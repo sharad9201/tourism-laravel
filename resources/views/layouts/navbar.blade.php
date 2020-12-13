@@ -42,6 +42,14 @@
                                                     document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
+                                   
+                                    
+                                    @cannot('edit-users')
+                                    <a class="dropdown-item" href="{{ route('userbooking.index') }}">
+                                        My Booking                                  
+                                    </a>
+                                    @endcannot
+                                   
                                     @can('manage-users')
                                     <a class="dropdown-item" href="{{route('admin.users.index')}}">
                                         User Management
