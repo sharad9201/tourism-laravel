@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
-use App\Trip;
 use App\Image;
+use App\Trip;
 class FormController extends Controller
 {
     /**
@@ -16,21 +15,20 @@ class FormController extends Controller
     public function index($id)
     {
         //
+        if (auth()->user() or auth()->guest())
+        {
+         $user=auth()->user();
+         $guest=auth()->guest();
+         $images=Image::all();
        
-       if (auth()->user() or auth()->guest())
-       {
-        $user=auth()->user();
-        $guest=auth()->guest();
-        $images=Image::all();
-      
-        $trip=Trip::find($id);
-       return view('form',compact('user','trip','images'));
-      }
-
-    else
-       { 
-           return view('form');
-    }
+         $trip=Trip::find($id);
+        return view('form',compact('user','trip','images'));
+       }
+ 
+     else
+        { 
+            return view('form');
+     }
     }
 
     /**
@@ -49,10 +47,21 @@ class FormController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function booking(Request $request,$id)
+    public function store(Request $request)
     {
         //
-        dd($request);   
+        $booking=new Booking;
+        $booking->full_name=$request->Full_name;
+        $booking->email=$request->gmail;
+        $booking->trip_date=$request->trip_date;
+        $booking->phone_number=$request->phone_number;
+        $booking->extra=$request->extra;
+        $booking->trip_id=$id;
+        $booking->save();
+
+        return redirect(route('userbooking.show'));
+
+        
     }
 
     /**
