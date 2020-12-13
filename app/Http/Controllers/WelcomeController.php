@@ -26,7 +26,7 @@ class WelcomeController extends Controller
     {
         //
         // $posts = Extraimage::all();
-        $category=array('carousel','about');
+        $category=array('carousel','about','dashprofile');
         $cat=$category[$id];
       
         $images =DB::table('extraimages')->where('category','=',$cat)->get();
@@ -53,7 +53,7 @@ class WelcomeController extends Controller
 
     public function photostore(Request $request,$id)
     {
-        $category=array('carousel','about');
+        $category=array('carousel','about','dashprofile');
         $this->validate($request,[
             'image'        =>  'required|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);

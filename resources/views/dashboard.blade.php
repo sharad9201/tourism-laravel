@@ -6,7 +6,20 @@
 @endsection
 
 @section('content')
-<section class="header-section">
+@can('update-photo',$images)
+  
+            
+<a href="/photo/2" class="btn btn-primary rounded-0 px-15 py-0_5 float-right"> Change this picture <i class="fas fa-edit"></i></a>
+</div>
+@endcan 
+
+@foreach ($extra as $image)
+ @if($image->category=='dashprofile')
+
+<section class="header-section" style="background-image:url({{asset('storage/'.$image->image)}});">
+  
+@endif
+@endforeach
 <h1>Travel Across The nepal</h1>
 <p>Welcome To Nepal </p>
 <div class="input-group">
@@ -202,14 +215,25 @@
 @endsection
 @section('css')
 <link rel="stylesheet" href="{{ URL::asset('css/owl.css') }}" />
+<style>
+
+
+.container{
+    padding:20px;
+    margin: 20px;
+  }
+  
+  </style>
 @endsection
 @section('scripts')
 <style>
-  .owl-carousel .item {
+ 
+ .owl-carousel .item {
     height: 100rem;
     background: #4DC7A0;
     padding: 1rem;
   }
+
   .owl-carousel .item h4 {
     color: #FFF;
     font-weight: 400;
@@ -225,7 +249,10 @@
     $('.owl-carousel').owlCarousel({
       loop:true,
       margin:10,
-      nav:true,
+      
+     
+      autoplay:true,
+      stagePadding:50,
       responsive:{
         0:{
           items:1
