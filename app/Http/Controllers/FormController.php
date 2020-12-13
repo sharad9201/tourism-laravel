@@ -55,11 +55,11 @@ class FormController extends Controller
         $booking->full_name=$request->Full_name;
         $booking->email=$request->gmail;
         $booking->trip_date=$request->trip_date;
-        $booking->phone_number=$request->phone_number;
+        $booking->number=$request->phone_number;
         $booking->extra=$request->extra;
         $booking->trip_id=$id;
         $booking->save();
-
+        $toastr->success("booked successfully");
         return redirect(route('dashboard'));
 
         
