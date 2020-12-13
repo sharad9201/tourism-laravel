@@ -17,6 +17,7 @@ class CreateImagesTable extends Migration
             $table->id();
             $table->string('image')->nullable();
             $table->bigInteger('trip_id');
+            $table->string('genre')->nullable();
             $table->timestamps();
         });
     }
