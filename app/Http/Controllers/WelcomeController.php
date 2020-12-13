@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use DB;
-
+use App\Extraimage;
+use Storage;
 class WelcomeController extends Controller
 {
     /**
@@ -20,6 +21,44 @@ class WelcomeController extends Controller
         return view ('welcome')->with('posts',$posts);
         //  return view('welcome');
         
+    }
+    public function photo()
+    {
+        //
+        $posts = Extraimage::all();
+        return view ('photogrid')->with('images',$posts);
+        //  return view('welcome');
+        
+    }
+    public function photodelete(Request $request,$id){
+       
+        $image=Extraimage::find($id);
+        
+            Storage::delete($image->image);
+            
+        
+       
+       $image->forceDelete();
+        toastr()->success('Photo Delated successfully ');
+        return redirect(route('photogrid'));
+
+    }
+
+    public function photostore(Request $request)
+    {
+        $this->validate($request,[
+            'image'        =>  'required|image|mimes:jpeg,png,jpg,gif|max:2048'
+        ]);
+       // dd($request->trip_id);
+        $img=$request->image->store('extraimages'); 
+        $image=new Extraimage();
+        
+       
+        $image->image=$img;
+        $image->save();
+        toastr()->success('Photo Added successfully ');
+        return redirect(route('photogrid'));
+
     }
 
     /**
@@ -114,4 +153,5 @@ class WelcomeController extends Controller
         $post->delete();
         return redirect('/posts')->with('success','Post Deleted');
     }
+
 }

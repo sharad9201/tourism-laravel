@@ -12,10 +12,10 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav">
                         <li class="nav-item active px-10 mb-sm-0_5">
-                            <a class="nav-link py-0" href="#">About</a>
+                            <a class="nav-link py-0" href="{{ route('dashboard') }}">Home</a>
                         </li>
                         <li class="nav-item px-10 mb-sm-0_5">
-                            <a class="nav-link py-0" href="#">Features</a>
+                            <a class="nav-link py-0" href="#">About</a>
                         </li>
                         <li class="nav-item px-10 mb-sm-0_5">                            
                             <a class="nav-link py-0" href="{{route('userbooking.index')}}">

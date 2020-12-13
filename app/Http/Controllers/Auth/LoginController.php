@@ -45,7 +45,7 @@ class LoginController extends Controller
             $this->redirectTo = route('admin.users.index');
             return $this->redirectTo;
         }
-            $this->redirectTo = route('dashboard');
+            $this->redirectTo = route('home');
             return $this->redirectTo;
         
     }

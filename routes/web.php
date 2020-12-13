@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Extraimage;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,7 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $images=Extraimage::all();
+    
+    return view('welcome',compact('images'));
 })->name('root');
 
 Auth::routes();
@@ -42,3 +44,6 @@ Route::get('/dashboard','DashboardController@index')->name('dashboard');
 Route::resource('booking','DestinationController',['except'=>['edit','create','store','destroy']]);
 // Route::get('/userbooking','DestinationController@userbook')->name('userbooking');
 Route::resource('userbooking','UserBookingController',['except'=>['edit','create','store','destroy']]);
+Route::get('/photo','WelcomeController@photo')->name("photogrid");
+Route::post('/photo','WelcomeController@photostore')->name('welcome.photo');
+Route::delete('photo/{deletephoto}','WelcomeController@photodelete')->name('welcome.photodelete');

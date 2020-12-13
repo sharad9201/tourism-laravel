@@ -2,7 +2,67 @@
 
 @section('content')
     <main id="main">
-        <div class="hero-section d-flex" style="background-image: url('sourceimages/traveller nepal.jpg'); ">
+        
+        @can('update-photo',$images)
+        
+            
+            <a href="/photo" class="btn btn-primary rounded-0 px-15 py-0_5 float-right"> Edit <i class="fas fa-edit"></i></a>
+    </div>
+        @endcan 
+        <div class="main-wrapper">
+           
+            <div id="carouselExampleControls"  class="carousel slide z-depth-1-half" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="text-wrapper">
+                        <h1 >
+                            Think about the
+                            Traveler Way
+                        </h1>
+                        <p>
+                            Talk To Our Experts and Get Your Dream Home Done. If you dream
+                            of designing a new home that takes full advantage of the unique
+                            geography and views of land that you love Talk To Our Experts
+                            and Get Your Dream Home Done. If you dream of designing a new
+                        </p>
+                   
+                    <a href="#" class="btn btn-primary rounded-0 px-15 py-0_5">Explore now</a>
+                    </div>
+
+                    @php
+                      $pos=0;
+                   @endphp
+
+                    @foreach ($images as $image)
+                    @if ($pos==0)
+                    <div class="carousel-item active">
+                    <img src="{{asset('storage/'.$image->image)}}" class="d-block w-100" alt="...">
+                    </div>
+                    @php
+                  $pos=$pos+1;
+      
+                  @endphp
+                    @else
+                    <div class="carousel-item">
+                        <img src="{{asset('storage/'.$image->image)}}" class="d-block w-100" alt="...">
+                        </div>
+                    @endif
+                @endforeach
+                  
+                 
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              
+            </div>
+        </div>
+        
+        {{-- <div class="hero-section d-flex" style="background-image: url('sourceimages/traveller nepal.jpg'); ">
             <div class="container ">
                 <div class="text-wrap text-white">
                     <h1>
@@ -18,7 +78,7 @@
                 </div>
                 <a href="#" class="btn btn-primary rounded-0 px-15 py-0_5">Explore now</a>
             </div>
-        </div>
+        </div> --}}
 
         <div class="our-services d-flex mt-15">
             <div class="container">
@@ -85,11 +145,19 @@
                 </div>
             </div>
         </div>
-
+       
         <div class="question mt-30">
             <div class="row two-column">
+                
                 <div class="col-sm-12 col-md-6 img-wrap"
-                    style="background-image: url('sourceimages/mustang nepal.jpg');"></div>
+                    style="background-image: url('sourceimages/mustang nepal.jpg');">
+                    @can('update-photo',$images)
+        
+                    <a href="/photo" class="btn btn-primary rounded-0 px-15 py-0_5 float-left"> Edit <i class="fas fa-edit"></i></a>
+            
+                @endcan 
+                </div>
+                
                 <div class="colsm-12 col-md-6">
                     <div class="text-wrap p-45">
                         <h2 class="my-30">Why Nepal?</h2>
@@ -149,4 +217,25 @@
 
 @section('footer')
     @include('layouts.footer')
+@endsection
+
+@section('css')
+<style>
+.carousel-inner{
+    position: relative;
+}
+
+.text-wrapper{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 99;
+    margin:30%;
+    
+}
+.carousel-inner{
+  width:100%;
+  max-height: 750px !important;
+}
+</style>
 @endsection
