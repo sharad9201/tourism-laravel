@@ -36,6 +36,18 @@ class FormController extends Controller
     public function store(Request $request)
     {
         //
+        $booking=new Booking;
+        $booking->full_name=$request->Full_name;
+        $booking->email=$request->gmail;
+        $booking->trip_date=$request->trip_date;
+        $booking->phone_number=$request->phone_number;
+        $booking->extra=$request->extra;
+        $booking->trip_id=$id;
+        $booking->save();
+
+        return redirect(route('userbooking.show'));
+
+        
     }
 
     /**
