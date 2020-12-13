@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Image;
 use App\Trip;
+use App\Booking;
 class FormController extends Controller
 {
     /**
@@ -47,7 +48,7 @@ class FormController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function booking(Request $request)
+    public function booking(Request $request,$id)
     {
         //
         $booking=new Booking;
@@ -59,7 +60,7 @@ class FormController extends Controller
         $booking->trip_id=$id;
         $booking->save();
 
-        return redirect(route('userbooking.show'));
+        return redirect(route('dashboard'));
 
         
     }
