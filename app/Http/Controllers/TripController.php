@@ -95,7 +95,7 @@ class TripController extends Controller
         toastr()->success('Package Added successfully ');
        
         return redirect(route('tripdetail.index'));
-
+        
 
     }
 
