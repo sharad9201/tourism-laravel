@@ -1,61 +1,132 @@
+@extends('layouts.app')
 
-<!DOCTYPE html>
-<html>
+@section('css')
+    
 <link rel="stylesheet" type="text/css" href="css/dashboard.css">
-<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href="https://fonts.googleapis.com/css?family=Dokdo" rel="stylesheet">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+  .card-img-top{
+    height: 258px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+</style>
+@endsection
 
-<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<title>Hello world</title>
-
-<body>
-<section class="header">
-	<div class="container">
-    {{-- <img src="images/logo.png"> --}}
-       <a href="{{route('posts.create')}}" class="logout-btn">CREATE POSTS</a>
-        {{-- <button class="logout-btn"><a  href="{{route('posts.create')}}">{{__'create_posts')}}</button> --}}
-        <button class="logout-btn"  href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-         {{ __('Logout') }}
-         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-            @csrf
-        </form>
-        </button>
-
-		</div>
-		<h1>Travel Across The nepal</h1>
-		<p>Welcome To Nepal </p>
-		<div class="input-group">
-				<input type="text" class="form-control" placeholder="Search city" name="">
-				<div class="input-group-append">
-				<button type="submit" class="input-group-text btn">Search</button>
-				</div>
-		</div>
+@section('content')
+<section class="header-section">
+<h1>Travel Across The nepal</h1>
+<p>Welcome To Nepal </p>
+<div class="input-group">
+    <input type="text" class="form-control" placeholder="Search city" name="" aria-label="" aria-describedby="basic-addon1">
+    <div class="input-group-append">
+      <button type="submit" class="btn btn-primary btns" style="border-radius: 25px;">Search</button>
+    </div>
+</div>
 </section>
 
- <div class="containerr">
-    <div class="heading">
-      <h1>Destination Booking</h1>
+<div class="container py-4">
+<div class="heading">
+  <h1>Destination Booking</h1>
+</div>
+<div class="row">
+@foreach($trips as $trip)
+@php
+  $count=0; 
+  @endphp
+  @foreach ($images as $image)
+  
+  @if ($trip->id==$image->trip_id and $count==0)
+ 
+  
+  <div class="col-lg-4 col-md-6 col-sm-6 my-3">
+    <div class="card">
+      <img src="{{asset('storage/'.$image->image)}}" alt="pokhara" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title">{{$trip->title}}</h5>
+        {{-- <p class="card-text">description if needed</p> --}}
+        
+        <a href="{{route('tripdetail.show',$trip->id)}}" class="btn btn-primary br-5">Book now</a>
+ 
+      </div>
     </div>
+  </div>
+  @php
+  $count=1
+ @endphp
+ @endif
+  @endforeach
+  @endforeach
+
+  <div class="col-lg-4 col-md-6 col-sm-6 my-3">
+    <div class="card">
+      <img src="https://th.bing.com/th/id/OIP.Q03QzwiU0XKCTdiGogMiMAHaDe?w=331&h=164&c=7&o=5&dpr=1.25&pid=1.7" alt="pokhara" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title">{{$trip->title}}</h5>
+        {{-- <p class="card-text">description if needed</p> --}}
+        
+        <a href="{{route('tripdetail.show',$trip->id)}}" class="btn btn-primary br-5">Book now</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="heading"> 
+  <h2>Most visited Places</h2>
+
+</div>
+
+@foreach ($trips as $trip)
+  <div class="col-lg-4 col-md-6 col-sm-6 my-3">
+    <div class="card">
+      <img src="{{asset($trip->image)}}" alt="pokhara" class="card-img-top">
+      <div class="card-body">
+        <h5 class="card-title">{{$trip->title}}</h5>
+        {{-- <p class="card-text">description if needed</p> --}}
+        
+        <a href="{{route('tripdetail.show',$trip->id)}}" class="btn btn-primary">Book now</a>
+      </div>
+    </div>
+  </div>
+  @endforeach  
+
+
+{{-- <div class="row">
+  @foreach ($trips as $trip)
+  <div class="card">
+    <div class="card-header">
+      
+      <h1> {{$trip->id}} </h1>
+      <h1> {{$trip->title}} </h1>
+     
+      <img src="{{asset('storage/'.$trip->image)}}" alt="Main Image" class="img-fluid " height="100px" width="100px">
+      </div>
+    <div class="card-body">
+      <a href="{{route('tripdetail.show',$trip->id)}}" class="btn">Book Now</a>
     
     <div class="row">
+     
       @foreach ($trips as $trip)
+      
       <div class="card">
         <div class="card-header">
-          
-          <h1> {{$trip->id}} </h1>
-          <h1> {{$trip->title}} </h1>
+         
+          {{-- <h1> {{$trip->id}} </h1> --}}
+          {{-- <h1> {{$trip->title}} </h1>
          
           <img src="{{asset('storage/'.$trip->image)}}" alt="Main Image" class="img-fluid " height="100px" width="100px">
           </div>
-        <div class="card-body">
+          <div class="card-body"> --}}
           {{-- <p>
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi neque molestiae eius explicabo mollitia tempore reiciendis, vel, sequi.
           </p> --}}
-          <a href="{{route('tripdetail.show',$trip->id)}}" class="btn">Book Now</a>
+          {{-- <a href="{{route('tripdetail.show',$trip->id)}}" class="btn">Book Now</a> 
+         
         </div>
-      </div>
+        
+      </div> --}}
+     
       {{-- <div class="card">
         <div class="card-header">
           <h1> {{$trip->id}} </h1>
@@ -92,30 +163,30 @@
           <a href="{{route('detail')}}" class="btn">Book Now</a>
         </div>
       </div>
-     --}}
       @endforeach  
     </div>
+    
   </div>
+  
   <div class="heading"> 
     <h2>Most visited Places</h2>
   
   </div>
-  <div class="image-container">git
+  <div class="image-container">
     @foreach ($trips as $trip)
       <div class="image">
-       
-        {{-- <a href="#"><img src="https://www.nepaltours.com/wp-content/uploads/2019/01/1522848_458752154225670_762148131_o.jpg">
-        </a> --}}
-        {{-- @foreach ($trips as $trip) --}}
-
+        <h1> {{$trip->title}} </h1>
+        <h3>NRP:{{$trip->price_low}} </h3>
+       <img src="{{asset('storage/'.$trip->image)}}" alt="Main Image" class="img-fluid " height="100px" width="100px">
+       <a href="{{route('tripdetail.show',$trip->id)}}" class="btn btn-info ">Detail</a>
          <h1> {{$trip->title}} </h1>
           <h3>NRP:{{$trip->price_low}} </h3>
-         <img src="{{asset('storage/'.$trip->image)}}" alt="Main Image" class="img-fluid " height="100px" width="100px">
-         <a href="{{route('tripdetail.show',$trip->id)}}" class="btn btn-info ">Detail</a>
+          <img src="{{asset('storage/'.$trip->image)}}" alt="Main Image" class="img-fluid " height="100px" width="100px">
         {{-- @endforeach --}}
         
-      </div>
-      @endforeach
+      {{-- </div>
+      <a href="{{route('tripdetail.show',$trip->id)}}" class="btn btn-info ">Detail</a>
+      @endforeach --}}
       {{-- <div class="image">
         <h1> place name</h1>
         <a href="#"><img src="https://www.adventurewhitehimalaya.com/wp-content/uploads/2020/05/lumbini.jpg">
@@ -145,58 +216,12 @@
         <a href="#"><img src="https://enlightentrip.com/images/package/C15663129550.jpeg">
       </div>   --}}
       
-    </div>
-  
-  
-  
-  
-      <footer class="footer-distributed">
-  
-        <div class="footer-left">
-            <img src="img/logo.png">
-          <h3>About<span>Hello-nepal</span></h3>
-  
-          <p class="footer-links">
-            <a href="{{route('dashboard')}}">Home</a>
-            |
-            <a href="#">Blog</a>
-            |
-            <a href="#">About</a>
-            |
-            <a href="#">Contact</a>
-          </p>
-  
-          <p class="footer-company-name">© 2020 Yamraj Group Pvt. Ltd.</p>
-        </div>
-  
-        <div class="footer-center">
-          <div>
-            <i class="fa fa-map-marker"></i>
-              <p><span>309 - kamalpokhari</span>
-              Kathmandu, Nepal - 9806090230</p>
-          </div>
-  
-          <div>
-            <i class="fa fa-phone"></i>
-            <p>+977-6969696969</p>
-          </div>
-          <div>
-            <i class="fa fa-envelope"></i>
-            <p><a href="mailto:yamraj@gmail.com">yamraj@gmail.com</a></p>
-          </div>
-        </div>
-        <div class="footer-right">
-          <p class="footer-company-about">
-            <span>About the company</span>
-            very very good company</p>
-          <div class="footer-icons">
-            <a href="#"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="#"><i class="fa fa-instagram"></i></a>
-            <a href="#"><i class="fa fa-linkedin"></i></a>
-            <a href="#"><i class="fa fa-youtube"></i></a>
-          </div>
-        </div>
-      </footer>
-</body>
-</html>
+    {{-- </div>
+    @endforeach
+  </div>  --}}
+
+@endsection
+
+@section('footer')
+    @include('layouts.footer')
+@endsection

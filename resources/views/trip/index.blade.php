@@ -1,10 +1,25 @@
+
+
 @extends('layouts.app')
 @section('dash')
-    <h3>dashboard</h3>
-    <div class="card">
+    {{-- <h3>dashboard</h3>
+
+    <div class="list-group list-group-flush">
+      <li  class="list-group-item">
+
+        <a href="{{route("tripdetail.create")}}" class="text-center">Add Package</a>
+      </li>
+    
+    <li  class="list-group-item">
+      <a href="{{route("tripdetail.index")}}"  class="text-center">All Package</a>
+    </li>
+    </div> --}}
+    <h3>Dashboard</h3>
+  
+    <div class="card text-center">
       <a href="{{route("tripdetail.create")}}" class="card-header  text-white bg-primary ">Add Package</a>
     </div>
-    <div class="card">
+    <div class="card text-center">
       <a href="{{route("tripdetail.index")}}" class="card-header text-white bg-primary ">All Package</a>
     </div>
 @endsection
@@ -13,6 +28,7 @@
   <div class="d-flex justify-content-center">
     {!! $trips->links() !!}
   </div>
+  <div class="table-responsive">
     <table class="table table-dark">
         <thead>
             <tr>
@@ -27,7 +43,20 @@
         @foreach ($trips as $trip)
         <tr>
         <td> {{$trip->id}}</td>
-        <td> <img src="{{asset('storage/'.$trip->image)}}" alt="Main Image" class="img-fluid " height="100px" width="100px"> </td>
+        @php
+        $count=0; 
+       @endphp
+        @foreach ($images as $image)
+      
+            @if ($trip->id==$image->trip_id and $count==0)
+                
+            <td> <img src="{{asset('storage/'.$image->image)}}" alt="Main Image" class="img-fluid " height="100px" width="100px"> </td>
+            @php
+            $count=1
+        @endphp
+            @endif
+            
+        @endforeach
         <td>{{$trip->title}} </td>
         <td>{{$trip->price_low}} </td>
         <td>
@@ -35,6 +64,9 @@
         </td>
                 <td> 
         <a href="{{route('tripdetail.edit',$trip->id)}}" class="btn btn-success ">edit</a>
+        </td>
+        <td>
+          <a href="{{route('tripdetail.photo',$trip->id)}}" class=" btn btn-light ">Add Image</a>
         </td>
         <td>
         <form action="{{route('tripdetail.destroy',$trip->id)}}" method="POST">
@@ -52,6 +84,7 @@
 
         </tbody>
     </table>
+  </div>
     <div class="d-flex justify-content-center">
       {!! $trips->links() !!}
     </div>
@@ -59,3 +92,8 @@
 
      
 @endsection
+
+
+{{-- @section('css')
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"  media="screen">
+@endsection --}}

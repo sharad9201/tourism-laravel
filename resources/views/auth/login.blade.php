@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('content')
+{{-- @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -70,4 +70,49 @@
         </div>
     </div>
 </div>
+@endsection --}}
+
+@section('css')
+    <link rel="stylesheet" type="text/css" href="css/auth.css">
+@endsection
+
+@section('content')
+    <div class="title">
+        <h1>Sign In</h1>
+    </div>
+    <div class="container-box"> 
+        <div class="left"></div>
+        <div class="right">
+            <div class="formBox">
+                <form method="POST" action="{{ route('login') }}">
+                    @csrf
+                    <p>Email</p>
+                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                    @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                    <p>Password</p>
+                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                    @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+
+                    <input type="submit" value="Sign In">
+                    {{-- <a href="#">Forget password?</a> --}}
+                    @if (Route::has('password.request'))
+                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                        {{ __('Forgot Your Password?') }}
+                    </a>
+                @endif
+
+                </form>
+            </div>
+        </div>
+    </div>
 @endsection

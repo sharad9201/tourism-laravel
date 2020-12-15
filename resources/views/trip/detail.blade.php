@@ -1,13 +1,57 @@
 @extends('layouts.app')
 
 @section('index')
+{{-- {{dd($trip)}} --}}
 <div class="container my-4">
 
-    
+  
     <h1> {{$trip->title}}</h1> 
-    <img src="{{asset('storage/'.$trip->image)}}" alt="Main Image" class="img-fluid"> 
+    @php
+        $pos=0;
+        $counts = array("First", "Second", "Third","Fourth","Fifth","Sixth","Seventh","Eighth","Ninth","Tenth");
+       
+    @endphp
+     <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+    @foreach ($images as $item)
+      {{$counts[$pos]}}
+      @if ($pos==0)
+      <div class="carousel-item active">
+        <img class="d-block w-100" src="{{asset('storage/'.$item->image)}}" alt="{{$counts[$pos]}} slide">
+      </div>
+      @php
+      $pos=$pos+1;
+      
+  @endphp
+      @else
 
-
+      <div class="carousel-item">
+        <img class="d-block w-100" src="{{asset('storage/'.$item->image)}}" alt="{{$counts[$pos]}} slide">
+      </div>
+      @php
+      $pos=$pos+1;
+      
+  @endphp
+      @endif
+           
+             
+             
+    @endforeach
+        </div>
+     </div> 
+{{--         
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>
+           --}}
+        
+    
     <div class="card p-4 my-4">
         <h2>Trip Facts</h2>
         <div class="row"> 
@@ -42,7 +86,7 @@
         <hr class="m-2">
         <h5>Know Before Booking</h5>
         {!! $trip->know_before_booking !!}
-        <a href="{{ route('form') }}" class="btn btn-secondary text-uppercase btn-lg">book this trip</a>
+        <a href="{{ route('form',['id'=>$trip->id]) }}" class="btn btn-secondary text-uppercase btn-lg">book this trip</a>
     </div>
     <div class="card p-4">
        

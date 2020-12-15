@@ -102,7 +102,7 @@ class PostsController extends Controller
         $post->title = $request->input('title');
         $post->body = $request->input('body');
         $post->save();
-        return redirect('/welcome')->with('success','Post Updated');
+        return redirect('/')->with('success','Post Updated');
 
     }
 

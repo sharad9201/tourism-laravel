@@ -8,6 +8,6 @@ class Image extends Model
 {
     //
     public function trip(){
-        return $this->belongsTo(Trip::class,'image_id','id');
+        return $this->belongsTo(Post::class,'image_id','id');
     }
 }

@@ -57,7 +57,10 @@ class User extends Authenticatable
         return false;
     }
 
-    // public function destinations(){
-    //     return $this->belongsToMany('App\Destination');
-    // }
+    public function destinations(){
+        return $this->hasMany('App\Destination');
+    }
+    public function trip(){
+        return $this->belongsToMany(Post::class,'id');
+    }
 }
