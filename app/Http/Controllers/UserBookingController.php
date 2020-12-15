@@ -8,6 +8,7 @@ Use App\Destination;
 use App\Trip;
 use DB;
 use Auth;
+use App\Booking;
 
 class UserBookingController extends Controller
 {

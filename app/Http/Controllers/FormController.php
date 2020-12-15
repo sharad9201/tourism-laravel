@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Image;
 use App\Trip;
 use App\Booking;
+use DB;
 class FormController extends Controller
 {
     /**
@@ -16,22 +17,56 @@ class FormController extends Controller
     public function index($id)
     {
         //
-        if (auth()->user() or auth()->guest())
+        if (auth()->user()!=null)
         {
          $user=auth()->user();
          $guest=auth()->guest();
          $images=Image::all();
-       
          $trip=Trip::find($id);
         return view('form',compact('user','trip','images'));
        }
  
      else
         { 
-            return view('form');
+            return view('dashboard');
      }
     }
+    public function show(){
+        
+       
+        
+        if(auth()->user()!=null)
+        {
+            
+            $bookings=DB::table('bookings')->where('email',"=",auth()->user()->email)->get();
+            //trip id
+            $trips=collect([]);
+           
+            foreach($bookings as $booking)
+            {
+              
+                $id=$booking->trip_id;
+                $product=Trip::find($id);
+                $trips->push($product);
 
+            
+            }
+           $images=Image::all();
+            
+            return view('booking',compact('bookings','trips','images'));
+            
+        }
+        
+        else{
+            toastr()->warning('Login to see the process  ');
+            return redirect(route('dashboard'));
+        }
+        
+        // $users = User::find(auth()->user()->id);
+  
+        //  return view('booking', compact('destinations'));
+  
+     }
     /**
      * Show the form for creating a new resource.
      *
@@ -51,6 +86,7 @@ class FormController extends Controller
     public function booking(Request $request,$id)
     {
         //
+
         $booking=new Booking;
         $booking->full_name=$request->Full_name;
         $booking->email=$request->gmail;
@@ -59,8 +95,8 @@ class FormController extends Controller
         $booking->extra=$request->extra;
         $booking->trip_id=$id;
         $booking->save();
-        $toastr->success("booked successfully");
-        return redirect(route('dashboard'));
+        toastr()->success("booked successfully");
+        return redirect(route('bookusershow'));
 
         
     }
@@ -71,10 +107,7 @@ class FormController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
+   
 
     /**
      * Show the form for editing the specified resource.
@@ -105,8 +138,13 @@ class FormController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
         //
+     
+        $booking=Booking::find($id);
+        $booking->delete();
+        toastr()->success("delated successfully");
+        return redirect(route('bookusershow'));
     }
 }

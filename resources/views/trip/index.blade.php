@@ -26,7 +26,7 @@
 @section('form')
 <div class="container my-4">
   <div class="d-flex justify-content-center">
-    {!! $trips->links() !!}
+  
   </div>
   <div class="table-responsive">
     <table class="table">
@@ -36,7 +36,7 @@
               <th scope="col">Package Image</th>
               <th scope="col">Pacakage name</th>
               <th scope="col">price</th>
-              <th scope="col">Action</th>
+              <th scope="col " class="d-flex justify-content-center">Action</th>
             </tr>
           </thead>
         <tbody>
@@ -79,6 +79,7 @@
             </form>  
         </td>
         </tr>
+        
         @endforeach
 
 </div>  
