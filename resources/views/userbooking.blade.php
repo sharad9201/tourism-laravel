@@ -11,32 +11,32 @@
 
 @section('content')
     <div class="container">
-        <div class="card p-3">
-        <div class="row">
-            <div class="col-lg-3 col-md-4 align-items-center">
-            <img class="" src="https://andystravelblog.boardingarea.com/wp-content/uploads/2015/11/hong-kong-sunrise-2-1.jpg" alt="hongkong">
-            </div>
-            <div class="col-lg-9 col-md-8">
-                <h2 class="m-0">Lets go to HongKong.</h2>
-                <hr class="m-2">
-                <div class="row"> 
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                        <p class="m-1">Destination: <span class="font-weight-bold">Honkong</span></p>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                    <p class="m-1">Email: <span class="font-weight-bold">testuser@gamil.com</span></p>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                    <p class="m-1">Trip Date: <span class="font-weight-bold">2020/12/18</span></p>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12">
-                        <p class="m-1">Phone Number: <span class="font-weight-bold">9869696969</span></p>
+        <div class="card p-3 my-4">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 align-items-center">
+                    <img class="" src="https://andystravelblog.boardingarea.com/wp-content/uploads/2015/11/hong-kong-sunrise-2-1.jpg" alt="hongkong">
+                </div>
+                <div class="col-lg-9 col-md-6 mt-sm-2">
+                    <h2 class="m-0">Lets go to HongKong.</h2>
+                    <hr class="m-2">
+                    <div class="row"> 
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <p class="m-1">Destination: <span class="font-weight-bold">Honkong</span></p>
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
-                            <p class="m-1">Extra: <span class="font-weight-bold">extra</span></p>
+                        <p class="m-1">Email: <span class="font-weight-bold">testuser@gamil.com</span></p>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                        <p class="m-1">Trip Date: <span class="font-weight-bold">2020/12/18</span></p>
+                        </div>
+                        <div class="col-lg-4 col-md-6 col-sm-12">
+                            <p class="m-1">Phone Number: <span class="font-weight-bold">9869696969</span></p>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-12">
+                                <p class="m-1">Extra: <span class="font-weight-bold">extra</span></p>
+                            </div>
                         </div>
                     </div>
-                </div>
             </div>
         </div>
     </div>

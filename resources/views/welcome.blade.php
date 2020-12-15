@@ -15,11 +15,11 @@
             <div id="carouselExampleControls"  class="carousel slide z-depth-1-half" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="text-wrapper">
-                        <h1 >
+                        <h1 class="text-white">
                             Think about the
                             Traveler Way
                         </h1>
-                        <p>
+                        <p class="text-white">
                             Talk To Our Experts and Get Your Dream Home Done. If you dream
                             of designing a new home that takes full advantage of the unique
                             geography and views of land that you love Talk To Our Experts
