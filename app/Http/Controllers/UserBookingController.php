@@ -8,6 +8,7 @@ Use App\Destination;
 use App\Trip;
 use DB;
 use Auth;
+use App\Booking;
 
 class UserBookingController extends Controller
 {
@@ -28,9 +29,10 @@ class UserBookingController extends Controller
         
         //  $user_id = DB::table('destinations')->find($user_id);
         
-//bhayo?ahh
+        //bhayo?ahh
         $user = auth()->user();
         // dd($users->destinations);
+        dd($user->destination);
         return view('userbooking')->with('destinations',$user->destinations);
 
     }

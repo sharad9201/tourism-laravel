@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'DashboardController@index')->name('home');
 // Route::resource('/admin/users', 'Admin\UsersController',['except'=>['show','create','store']]);
 
 
@@ -29,7 +29,9 @@ Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:mana
     Route::resource('/users','UsersController',['except'=>['show','create','store']]);
 });
 
-Route::get('/form','FormController@index')->name('form');
+Route::get('/form/{form}','FormController@index')->name('form');
+Route::post('/form/{form}','FormController@booking')->name('form');
+
 Route::get('/detail','DetailsController@index')->name('detail');
 Route::post('submit','DestinationController@save');
 
@@ -44,6 +46,12 @@ Route::get('/dashboard','DashboardController@index')->name('dashboard');
 Route::resource('booking','DestinationController',['except'=>['edit','create','store','destroy']]);
 // Route::get('/userbooking','DestinationController@userbook')->name('userbooking');
 Route::resource('userbooking','UserBookingController',['except'=>['edit','create','store','destroy']]);
-Route::get('/photo','WelcomeController@photo')->name("photogrid");
-Route::post('/photo','WelcomeController@photostore')->name('welcome.photo');
-Route::delete('photo/{deletephoto}','WelcomeController@photodelete')->name('welcome.photodelete');
+Route::get('/photo/{photo}','WelcomeController@photo')->name("photogrid");
+Route::post('/photo/{photo}','WelcomeController@photostore')->name('welcome.photo');
+Route::delete('photo/{deletephoto}/delete','WelcomeController@photodelete')->name('welcome.photodelete');
+
+Route::group(['middleware' => 'web'], function () {
+    Route::auth ();
+    Route::get('/bookuser/show', 'FormController@show')->name('bookusershow');
+    Route::delete('bookuser/{id}','FormController@destroy')->name('cancelbooking');
+});

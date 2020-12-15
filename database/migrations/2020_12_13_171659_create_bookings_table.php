@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateImagesTable extends Migration
+class CreateBookingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class CreateImagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('images', function (Blueprint $table) {
+        Schema::create('bookings', function (Blueprint $table) {
             $table->id();
-            $table->string('image')->nullable();
-            $table->bigInteger('trip_id');
-            $table->string('genre')->nullable();
+            $table->string('full_name');
+            $table->string('email');
+            $table->date('trip_date');
+            $table->string('extra');
+            $table->string("number");
+            $table->string('trip_id');
             $table->timestamps();
            
         });
@@ -30,6 +33,6 @@ class CreateImagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('images');
+        Schema::dropIfExists('bookings');
     }
 }

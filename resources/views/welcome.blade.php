@@ -6,9 +6,10 @@
         @can('update-photo',$images)
         
             
-            <a href="/photo" class="btn btn-primary rounded-0 px-15 py-0_5 float-right"> Edit <i class="fas fa-edit"></i></a>
+            <a href="/photo/0" class="btn btn-primary rounded-0 px-15 py-0_5 float-right"> Edit <i class="fas fa-edit"></i></a>
     </div>
         @endcan 
+    
         <div class="main-wrapper">
            
             <div id="carouselExampleControls"  class="carousel slide z-depth-1-half" data-ride="carousel">
@@ -25,7 +26,7 @@
                             and Get Your Dream Home Done. If you dream of designing a new
                         </p>
                    
-                    <a href="#" class="btn btn-primary rounded-0 px-15 py-0_5">Explore now</a>
+                    <a href="{{route('dashboard')}}" class="btn btn-primary rounded-0 px-15 py-0_5">Explore now</a>
                     </div>
 
                     @php
@@ -33,7 +34,8 @@
                    @endphp
 
                     @foreach ($images as $image)
-                    @if ($pos==0)
+                    @if($image->category == 'carousel')
+                    @if ($pos==0 )
                     <div class="carousel-item active">
                     <img src="{{asset('storage/'.$image->image)}}" class="d-block w-100" alt="...">
                     </div>
@@ -46,6 +48,7 @@
                         <img src="{{asset('storage/'.$image->image)}}" class="d-block w-100" alt="...">
                         </div>
                     @endif
+                @endif
                 @endforeach
                   
                  
@@ -148,16 +151,19 @@
        
         <div class="question mt-30">
             <div class="row two-column">
+                @foreach ($images as $image)
+                @if($image->category == 'about')
                 
                 <div class="col-sm-12 col-md-6 img-wrap"
-                    style="background-image: url('sourceimages/mustang nepal.jpg');">
+                    style="background-image: url({{asset('storage/'.$image->image)}});">
                     @can('update-photo',$images)
         
-                    <a href="/photo" class="btn btn-primary rounded-0 px-15 py-0_5 float-left"> Edit <i class="fas fa-edit"></i></a>
+                    <a href="/photo/1" class="btn btn-primary rounded-0 px-15 py-0_5 float-left"> Edit <i class="fas fa-edit"></i></a>
             
                 @endcan 
                 </div>
-                
+                @endif
+                @endforeach 
                 <div class="colsm-12 col-md-6">
                     <div class="text-wrap p-45">
                         <h2 class="my-30">Why Nepal?</h2>
@@ -211,7 +217,7 @@
                 </div>
             </div>
         </div>
-
+      
     </main>
 @endsection
 

@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Trip;
-class Image extends Model
+class Booking extends Model
 {
     //
     public function trip(){
-        return $this->belongsTo(Trip::class,'image_id','id');
+        return $this->belongsTo(Trip::class,'trip_id');
     }
 }

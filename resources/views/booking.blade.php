@@ -10,35 +10,99 @@
 @endsection
 
 @section('content')
+   
     <div class="container">
+        <div class="alert alert-warning" role="alert">
+           Booking can be canceled Before 3 Days only
+          </div>
+         
+          <h2 class="text-center">My Bookings</h2>
+         
+        @foreach ($bookings as $booking)
+                {{dd($booking->trips->id)}}
         <div class="card p-3">
         <div class="row">
+            
             <div class="col-lg-3 col-md-4 align-items-center">
-            <img class="" src="https://andystravelblog.boardingarea.com/wp-content/uploads/2015/11/hong-kong-sunrise-2-1.jpg" alt="hongkong">
+                @php
+        $count=0; 
+       @endphp
+                @foreach($trips as $trip)
+                
+                @if($trip->id==$booking->trip_id)
+                @foreach ($images as $image)
+                @if ($trip->id==$image->trip_id and $count==0)
+           
+            <img class="" src="{{asset('storage/'.$image->image)}}" alt="{{$trip->title}}">
+            @php
+            $count=1
+            @endphp
+            @endif
+          @endforeach  
+       
+       
             </div>
-            <div class="col-lg-9 col-md-8">
-                <h2 class="m-0">Lets go to HongKong.</h2>
+          
+            <div class="col-lg-9 col-md-8 mb-10">
+                <h4 class="m-0">Destination to {{$trip->title}}</h4>
                 <hr class="m-2">
                 <div class="row"> 
                     <div class="col-lg-4 col-md-6 col-sm-12">
-                        <p class="m-1">Destination: <span class="font-weight-bold">Honkong</span></p>
+                        <p class="m-1">Destination: <span class="font-weight-bold">{{$trip->destination}}</span></p>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12">
-                    <p class="m-1">Email: <span class="font-weight-bold">testuser@gamil.com</span></p>
+                    <p class="m-1">Email: <span class="font-weight-bold">{{$booking->email}}</span></p>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12">
-                    <p class="m-1">Trip Date: <span class="font-weight-bold">2020/12/18</span></p>
+                    <p class="m-1">Trip Date: <span class="font-weight-bold">{{$booking->trip_date}}</span></p>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-12">
-                        <p class="m-1">Phone Number: <span class="font-weight-bold">9869696969</span></p>
+                        <p class="m-1"> <span class="font-weight-bold">
+                            <button class="btn btn-danger" onClick="cancelBookings()" data-bs-toggle="modal" data-bs-target="#cancelBooking">
+                                Cacnel this Trip
+                              </button></span></p>
+                            <form action="{{route('cancelbooking',$booking->id)}}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                
+                               
+                                  
+                                  <!-- Modal -->
+                                  <div class="modal fade" id="cancelBooking" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                      <div class="modal-content">
+                                        <div class="modal-header" style="background-color: rgb(13, 126, 97);
+                                            
+                                        ">
+                                          <h5 class="modal-title align-item-center"  id="cancelBookingLabel">Cancel Booking</h5>
+                                          <button type="button"  onclick="handleCancel()" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                          Are you sure to cancel Booking
+                                          
+                                        </div>
+                                        <div class="modal-footer">
+
+                                          <button type="button" onclick="handleCancel()" class="btn btn-secondary bg-green" data-bs-dismiss="modal">Close</button>
+                                          <button type="submit"  class="btn btn-danger">Cancel Booking</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                            </form>
+                           
                         </div>
                         <div class="col-lg-4 col-md-6 col-sm-12">
-                            <p class="m-1">Extra: <span class="font-weight-bold">extra</span></p>
+                            <p class="m-1"> <span class="font-weight-bold"></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        @endif
+        @endforeach
+        @endforeach
+        
     </div>
 @endsection
 
@@ -124,4 +188,16 @@
 @endcan
 
 
+@endsection
+@section('scripts')
+<script>
+    function cancelBookings(){
+        
+        $('#cancelBooking').modal('show');
+    }
+    function handleCancel()
+    {
+        $('#cancelBooking').modal('hide');
+    }
+</script>
 @endsection

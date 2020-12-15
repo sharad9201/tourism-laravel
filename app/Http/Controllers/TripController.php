@@ -78,7 +78,7 @@ class TripController extends Controller
             $trip->know_before_booking=$request["post-trixFields"][ "know_before_booking"];
             $trip->itinerary=$request["post-trixFields"]["itenary"];
             $trip->higlight=$request["post-trixFields"]["highlight"];
-            $trip->day=$request->day;
+             $trip->day=$request->day;
             $trip->night=$request->night;
             $trip->included=$request["post-trixFields"]["included"];
             $trip->not_included=$request["post-trixFields"]["not_included"];
@@ -87,14 +87,15 @@ class TripController extends Controller
           
             $image=new Image();
             $image->trip_id=$trip->id;
-           
+           $image->genre="trips";
             $image->image=$img;
             $image->save();
             
         session()->flash("success","successfully saved");
         toastr()->success('Package Added successfully ');
+       
         return redirect(route('tripdetail.index'));
-
+        
 
     }
 
@@ -105,9 +106,10 @@ class TripController extends Controller
         ]);
        // dd($request->trip_id);
         $img=$request->image->store('trips'); 
+        
         $image=new Image();
         $image->trip_id=$request->trip_id;
-       
+        $image->genre=$request->genre;
         $image->image=$img;
         $image->save();
         toastr()->success('Photo Added successfully ');
@@ -208,6 +210,8 @@ class TripController extends Controller
     public function photo($id){
        
         $images=DB::table('images')->where('trip_id','=',$id)->get();
+         
+       
         $title=Trip::find($id);
         return view('trip.gallery',compact('images','title'));    
         
