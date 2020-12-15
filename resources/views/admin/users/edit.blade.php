@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Edit User {{ $user->name}}</div>
+                <h3 class="card-header bg-white d-flex justify-content-center">Editing User - {{ $user->name}}</h3>
 
                 <div class="card-body">
                   <form action="{{route('admin.users.update',$user)}}" method="POST">
@@ -57,4 +57,8 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('footer')
+    @include('layouts.footer')
 @endsection
