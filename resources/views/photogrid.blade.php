@@ -13,48 +13,36 @@
     
 </li>
 </div>
-
+ 
 @endforeach
 @endif
-@php
-$category=array('carousel','about','Main Pic');
-@endphp
+
     <div class="container">
         <div class="title m-4">
             <div class="row">
                 <div class="col-md-8">
-    <h2 class="text-center"> Image Gallery of {{($category[$id])}}</h2>
+    <h2 class="text-center"> Image Gallery of Carousel</h2>
 <h4 class="text-center">Add Delete section</h4>
 </div>
-
 <div class="col-md-4">
-   
-    <form action="{{route('welcome.photo',$id)}}" method="POST" enctype="multipart/form-data" >
+    <form action="{{route('welcome.photo')}}" method="POST" enctype="multipart/form-data" >
         @csrf
         <div class="form-group">
         <div class="row">
     
            
                <div class="form-control">
-               <input type="hidden" id="trip_id" name="trip_id" value="{{$id}}">
+               <input type="hidden" id="trip_id" name="trip_id" value="">
                   
                    <input type="file" id="image" name="image">
                           
                 </div>
-              
+               
                     <div class="d-flex justify-content-center">
-                      @if ($id==(1 or 2) AND (count($images)>0))
-                     <alert class="alert-warning">1 image required </alert> 
-                     
-                      @elseif($id==1 or $id==2)
-                      <button type="submit" class="btn btn-success ">upload</button>
-                      @endif
-                      @if ($id!=(1 or 2))
-                      <button type="submit" class="btn btn-success ">upload</button>
-                      @endif
+                    <button type="submit" class="btn btn-success ">upload</button>
                     </div>
-                    
-                    
+                
+            
     
         </div>
         </div>
@@ -64,7 +52,7 @@ $category=array('carousel','about','Main Pic');
 </div>
 @foreach($images as $item)
 <div class="responsive">
-  <div class="gallery justify-content-center">
+  <div class="gallery">
     <a target="_blank" href="img_5terre.jpg">
       <img src="{{asset('storage/'.$item->image)}}" alt="Cinque Terre" width="600" height="400">
     </a>
@@ -79,7 +67,6 @@ $category=array('carousel','about','Main Pic');
         @csrf
         @method('DELETE')
         {{-- <input type="hidden" id="trip_id" name="trip_id" value="{{$title->id}}"> --}}
-        <input type="hidden" name="id" value="{{$id}}">
           <button type="submit"  class="btn btn-danger btn-sm "> Delete</button>
         
     </form>  

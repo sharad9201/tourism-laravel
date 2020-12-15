@@ -198,9 +198,6 @@
                           @endif
                     </div>
                     <div class="form-group">
-                      <input type="hidden" name="genre" value="trips">
-                    </div>
-                    <div class="form-group">
                         <label for="price">Package Price</label>
                         @if ($errors->has('price_low'))
                     
