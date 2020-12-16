@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('index')
+{{-- {{dd($trip)}} --}}
 <div class="container my-4">
 
   
@@ -85,7 +86,7 @@
         <hr class="m-2">
         <h5>Know Before Booking</h5>
         {!! $trip->know_before_booking !!}
-        <a href="{{ route('form',$trip->id) }}" class="btn btn-secondary text-uppercase btn-lg">book this trip</a>
+        <a href="{{ route('form',['id'=>$trip->id]) }}" class="btn btn-secondary text-uppercase btn-lg">book this trip</a>
     </div>
     <div class="card p-4">
        

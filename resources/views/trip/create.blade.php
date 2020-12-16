@@ -110,7 +110,7 @@
                       <div class="input-group mb-3">
                       
                       <div class="col-md-7 mb-2">
-                        <img id="image_preview_container" src="{{ asset('storage/image/image-preview.png') }}"
+                        <img id="image_preview_container" src="{{ asset('storage/trips/image-preview.png') }}"
                             alt="preview image" style="max-height: 150px;">
                        </div>
                     
@@ -375,18 +375,14 @@ $(document).ready(function (e) {
    $('#image').change(function(){
            
     let reader = new FileReader();
-
     reader.onload = (e) => { 
-
       $('#image_preview_container').attr('src', e.target.result); 
     }
-
     reader.readAsDataURL(this.files[0]); 
   
    });
   
    $('#upload_image_form').submit(function(e) {
-
      e.preventDefault();
   
      var formData = new FormData(this);
@@ -410,7 +406,7 @@ $(document).ready(function (e) {
 });
 </script>
 @endsection
-{{-- 
+
 @section('css')
 <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"  media="screen">
-@endsection --}}
+@endsection

@@ -103,7 +103,8 @@
           @endforeach 
         </div>
     </div>
-      <div class="heading"> 
+    
+  <div class="heading"> 
   <h2>Most visited Places</h2>
 
 </div>
@@ -207,12 +208,14 @@
     </div>
     @endforeach
   </div> --}}
-  
+
+
 @endsection
 
 @section('footer')
     @include('layouts.footer')
 @endsection
+
 @section('css')
 <link rel="stylesheet" href="{{ URL::asset('css/owl.css') }}" />
 <style>

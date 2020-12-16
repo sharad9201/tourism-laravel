@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Image;
 use App\Trip;
 use App\Booking;
+
+use App\Destination;
+
 use DB;
 class FormController extends Controller
 {
@@ -86,7 +89,6 @@ class FormController extends Controller
     public function booking(Request $request,$id)
     {
         //
-
         $booking=new Booking;
         $booking->full_name=$request->Full_name;
         $booking->email=$request->gmail;

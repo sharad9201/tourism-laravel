@@ -66,23 +66,19 @@
 } */
 /* footer */
 /* @import url("http://fonts.googleapis.com/css?family=Open+Sans:400,700");
-
 header-section {
     text-align: center;
     padding-top: 100px;
     margin-bottom: 190px;
 }
-
 header-section h1 {
     font: normal 32px/1.5 "Open Sans", sans-serif;
     color: #3f71ae;
     padding-bottom: 16px;
 }
-
 header-section h2 {
     color: #f05283;
 }
-
 header-section span {
     color: #3f71ea;
 } */
@@ -94,7 +90,6 @@ header-section span {
         padding-top: 40px;
     }
 }
-
 .image-container {
     position: relative;
     column-count: 4;
@@ -124,11 +119,9 @@ header-section span {
     z-index: 1;
     transition: 0.25 ease-in-out;
 }
-
 .image:hover h1 {
     opacity: 0.5;
 }
-
 @media screen and (max-width: 1024px) {
     h1 {
         font-size: 20px;
@@ -139,7 +132,6 @@ header-section span {
         column-count: 3;
     }
 }
-
 @media screen and (max-width: 425px) {
     .image-container {
         column-count: 2;

@@ -30,10 +30,14 @@ class UserBookingController extends Controller
         //  $user_id = DB::table('destinations')->find($user_id);
         
         //bhayo?ahh
+//bhayo?ahh
+// getting id from auth of user to compare with user_id in destination table.
         $user = auth()->user();
         // dd($users->destinations);
-        dd($user->destination);
+      
         return view('userbooking')->with('destinations',$user->destinations);
+        // return view('form')->with('trips',$trips->destinations);
+
 
     }
 

@@ -206,6 +206,8 @@ class TripController extends Controller
         toastr()->success('Photo Deleated successfully ');
         return redirect(route("tripdetail.index"));
     }
+<<<<<<< HEAD
+=======
 
     public function photo($id){
        
@@ -231,4 +233,5 @@ class TripController extends Controller
     }
 
     
+>>>>>>> e572fdcef69acdef15fa1a4eeae6d3687cf7c236
 }
