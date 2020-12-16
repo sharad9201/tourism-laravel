@@ -20,7 +20,7 @@
   
 @endif
 @endforeach
-<h1>Travel Across The nepal</h1>
+<h1>Travel Across The Nepal</h1>
 <p>Welcome To Nepal </p>
 <div class="input-group">
     <input type="text" class="form-control" placeholder="Search city" name="" aria-label="" aria-describedby="basic-addon1">

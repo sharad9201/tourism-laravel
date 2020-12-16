@@ -15,19 +15,22 @@
             <div id="carouselExampleControls"  class="carousel slide z-depth-1-half" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="text-wrapper">
-                        <h1 >
+                        <h1>
                             Think about the
                             Traveler Way
                         </h1>
+                        <div class="container col-sm-12 col-md-6 ">
                         <p>
                             Talk To Our Experts and Get Your Dream Home Done. If you dream
                             of designing a new home that takes full advantage of the unique
                             geography and views of land that you love Talk To Our Experts
                             and Get Your Dream Home Done. If you dream of designing a new
                         </p>
-                   
+                    </div>  
+                   <div class="anchor">
                     <a href="{{route('dashboard')}}" class="btn btn-primary rounded-0 px-15 py-0_5">Explore now</a>
-                    </div>
+                </div>  
+                </div>
 
                     @php
                       $pos=0;
@@ -234,11 +237,23 @@
 
 .text-wrapper{
     position: absolute;
-    top: 0px;
+    top: -30%;
     left: 0px;
-    z-index: 99;
-    margin:30%;
+    z-index: 9;
+    margin:20%;
+    color: wheat;
+    align-content: center;
+}
+
+.text-wrapper h1{
     
+    font-family: "Lobster", serif;
+    text-align: center;
+    padding: 10%;
+}
+.anchor {
+    padding: 5%;
+    text-align: center;
 }
 .carousel-inner{
   width:100%;
