@@ -9,7 +9,7 @@ use App\Trip;
 use DB;
 use Auth;
 use App\Booking;
-
+use App\DestinationStatus;
 class UserBookingController extends Controller
 {
     /**
@@ -57,9 +57,17 @@ class UserBookingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request,$id)
     {
         //
+      
+        $dstatus=new DestinationStatus();
+        $dstatus->destination_id=$id;
+        $dstatus->status="cancel";
+        $dstatus->save();
+        toastr()->success('Canceled successfully');
+        return redirect(route('booking.index'));
+    
     }
 
     /**

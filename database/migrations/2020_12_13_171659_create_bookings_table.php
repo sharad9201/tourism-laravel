@@ -13,6 +13,7 @@ class CreateBookingsTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('bookings');
         Schema::create('bookings', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->id();

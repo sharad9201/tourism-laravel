@@ -12,7 +12,7 @@ class CreateTripsTable extends Migration
      * @return void
      */
     public function up()
-    {
+    {   Schema::dropIfExists('trips');
         Schema::create('trips', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->id();

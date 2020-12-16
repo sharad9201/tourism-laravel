@@ -66,3 +66,6 @@ Route::group(['middleware' => 'web'], function () {
 // Route::resource('booking','DestinationController',['except'=>['edit','create','store','destroy']]);
 // // Route::get('/userbooking','DestinationController@userbook')->name('userbooking');
 // Route::resource('userbooking','UserBookingController',['except'=>['edit','create','store','destroy']]);
+
+//for saving the data of cancel booking 
+Route::post('/userbooking/{id}','UserBookingController@store')->name('userbookingcancel');

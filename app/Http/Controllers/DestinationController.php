@@ -7,6 +7,7 @@ use App\User;
 use App\Destination;
 use App\db;
 use App\Trip;
+use App\DestinationStatus;
 use App\Http\Request\DateRequest;
 class DestinationController extends Controller
 {
@@ -46,9 +47,10 @@ class DestinationController extends Controller
    }
    public function index(){
       
-      
+      $status=DestinationStatus::all();
+     
       $destinations=Destination::paginate(5);
-      return view('userbooking',compact('destinations'));
+      return view('userbooking',compact('destinations','status'));
 
       // $users = User::find(auth()->user()->id);
 

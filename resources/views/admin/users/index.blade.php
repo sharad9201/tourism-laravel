@@ -5,7 +5,7 @@
 
     <div class="d-flex">
         
-        <h1 class="mx-auto">User List</h1>
+        <h1 class="mx-auto">Users List</h1>
     </div>
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -15,7 +15,7 @@
                     <a href="#admin" data-toggle="tab" role="tab" class="nav-link active">Admin</a>
                 </li>
                 <li class="nav-item">
-                  <a href="#author" data-toggle="tab" role="tab" class="nav-link">Aduthor</a>
+                  <a href="#author" data-toggle="tab" role="tab" class="nav-link">Author</a>
               </li>
               <li class="nav-item">
                   <a href="#guest" data-toggle="tab" role="tab" class="nav-link">User</a>

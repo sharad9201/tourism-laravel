@@ -12,7 +12,7 @@ class CreateImagesTable extends Migration
      * @return void
      */
     public function up()
-    {
+    {Schema::dropIfExists('images');
         Schema::create('images', function (Blueprint $table) {
             $table->id();
             $table->string('image')->nullable();
