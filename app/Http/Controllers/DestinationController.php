@@ -48,7 +48,7 @@ class DestinationController extends Controller
       
       
       $destinations=Destination::paginate(5);
-      return view('dashboard',compact('destinations'));
+      return view('userbooking',compact('destinations'));
 
       // $users = User::find(auth()->user()->id);
 

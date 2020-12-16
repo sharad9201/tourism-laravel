@@ -1,13 +1,6 @@
 @extends('layouts.app')
 
-@section('css')
-<style>
-    img{
-        /* height:120px; */
-        max-width:200px;
-    }
-</style>
-@endsection
+
 
 @section('content')
    
@@ -19,31 +12,14 @@
           <h2 class="text-center">My Bookings</h2>
          
         @foreach ($bookings as $booking)
-                {{dd($booking->trips->id)}}
+              
         <div class="card p-3">
         <div class="row">
             
-            <div class="col-lg-3 col-md-4 align-items-center">
-                @php
-        $count=0; 
-       @endphp
-                @foreach($trips as $trip)
-                
-                @if($trip->id==$booking->trip_id)
-                @foreach ($images as $image)
-                @if ($trip->id==$image->trip_id and $count==0)
-           
-            <img class="" src="{{asset('storage/'.$image->image)}}" alt="{{$trip->title}}">
-            @php
-            $count=1
-            @endphp
-            @endif
-          @endforeach  
-       
-       
-            </div>
           
+          @foreach($destiantions as $destination)
             <div class="col-lg-9 col-md-8 mb-10">
+                
                 <h4 class="m-0">Destination to {{$trip->title}}</h4>
                 <hr class="m-2">
                 <div class="row"> 
@@ -99,7 +75,7 @@
                 </div>
             </div>
         </div>
-        @endif
+     
         @endforeach
         @endforeach
         

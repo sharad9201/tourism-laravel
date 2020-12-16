@@ -150,17 +150,18 @@
         </div>
        
         <div class="question mt-30">
+            @can('update-photo',$images)
+        
+            <a href="/photo/1" class="btn btn-primary rounded-0 px-15 py-0_5 float-left"> Edit <i class="fas fa-edit"></i></a>
+    
+        @endcan 
             <div class="row two-column">
                 @foreach ($images as $image)
                 @if($image->category == 'about')
                 
-                <div class="col-sm-12 col-md-6 img-wrap"
-                    style="background-image: url({{asset('storage/'.$image->image)}});">
-                    @can('update-photo',$images)
-        
-                    <a href="/photo/1" class="btn btn-primary rounded-0 px-15 py-0_5 float-left"> Edit <i class="fas fa-edit"></i></a>
-            
-                @endcan 
+                <div class="col-sm-12 col-md-6 img-wrap">
+                    <img src="{{asset('storage/'.$image->image)}}" class="img-wrap" alt="">
+                   
                 </div>
                 @endif
                 @endforeach 

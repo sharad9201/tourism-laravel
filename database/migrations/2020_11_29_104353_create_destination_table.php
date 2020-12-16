@@ -15,6 +15,7 @@ class CreateDestinationTable extends Migration
     public function up()
     {
         Schema::create('destinations', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->id()->unsigned();
             $table->string('Full_name')->unique();
             $table->string('gmail')->unique();
@@ -23,11 +24,11 @@ class CreateDestinationTable extends Migration
             $table->mediumText('extra');
             // $table->string('destination');
             $table->timestamps();
-            $table->bigInteger('trip_id')->unsigned();
-            $table->foreign('trip_id')->references('id')->on('trips')->ondelete('cascade');
+            $table->Integer('trip_id')->unsigned();
+           $table->foreign('trip_id')->references('id')->on('trips')->ondelete('cascade');
 
             // $table->string('destination');
-            $table->BigInteger('user_id')->unsigned();
+            $table->Integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->ondelete('cascade');
         });
 

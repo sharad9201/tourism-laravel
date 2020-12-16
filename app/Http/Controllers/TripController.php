@@ -152,7 +152,8 @@ class TripController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request,$id)
-    {   $data=$request->all();
+    {   
+        $data=$request->all();
         $trip =Trip::find($id);
         
         if($request->image){
@@ -206,8 +207,6 @@ class TripController extends Controller
         toastr()->success('Photo Deleated successfully ');
         return redirect(route("tripdetail.index"));
     }
-<<<<<<< HEAD
-=======
 
     public function photo($id){
        
@@ -233,5 +232,4 @@ class TripController extends Controller
     }
 
     
->>>>>>> e572fdcef69acdef15fa1a4eeae6d3687cf7c236
 }

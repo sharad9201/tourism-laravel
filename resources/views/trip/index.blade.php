@@ -36,7 +36,7 @@
               <th scope="col">Package Image</th>
               <th scope="col">Pacakage name</th>
               <th scope="col">price</th>
-              <th scope="col " class="d-flex justify-content-center">Action</th>
+              <th scope="col ">Action</th>
             </tr>
           </thead>
         <tbody>

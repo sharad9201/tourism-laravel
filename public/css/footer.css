@@ -1,8 +1,10 @@
 /* The footer is fixed to the bottom of the page */
 
 footer {
-    position: fixed;
+    position: relative;
     bottom: 0;
+    overflow: hidden;
+    z-index: 999;
 }
 
 @media (max-height: 800px) {
