@@ -39,6 +39,7 @@ Route::resource('userbooking','UserBookingController',['except'=>['edit','create
 Route::get('tripdetail/{tripdetail}/photo','TripController@photo')->name('tripdetail.photo');
 Route::post('tripdetail/gallery','TripController@photostore')->name('tripdetail.photostore');
 Route::delete('tripdetail/gallery/{deletephoto}','TripController@photodelete')->name('tripdetail.photodelete');
+Route::get('search','DashboardController@search');
 
 // Route::resource('posts','PostsController');
 

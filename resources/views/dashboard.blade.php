@@ -18,12 +18,14 @@
 <section class="header-section">
 <h1>Travel Across The nepal</h1>
 <p>Welcome To Nepal </p>
+<form action="/search" method="GET">
 <div class="input-group">
-    <input type="text" class="form-control" placeholder="Search city" name="" aria-label="" aria-describedby="basic-addon1">
+    <input type="search" class="form-control" placeholder="Search city" name="search" >
     <div class="input-group-append">
       <button type="submit" class="btn btn-primary btns" style="border-radius: 25px;">Search</button>
     </div>
 </div>
+</form>
 </section>
 
 <div class="container py-4">
@@ -35,7 +37,7 @@
 @php
   $count=0; 
   @endphp
-  @foreach ($images as $image)
+  @foreach ($trip->image as $image)
   
   @if ($trip->id==$image->trip_id and $count==0)
  

@@ -34,6 +34,7 @@
         <div class="col-lg-4 col-md-6 col-sm-12">
             <p class="m-1">Extra: <span class="font-weight-bold">{{$destination->extra}}</span></p>
         </div>
+        <button>marked as done</button>
         {{-- <div class="col-lg-4 col-md-6 col-sm-12">
         <p class="m-1">Trip Difficulty: <span class="font-weight-bold">{{$destinations->gmail}}</span></p>
         </div>

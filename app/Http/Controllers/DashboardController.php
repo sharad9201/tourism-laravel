@@ -7,6 +7,7 @@ use App\Trip;
 use App\Post;
 use App\Destination;
 use App\Image;
+use DB;
 
 class DashboardController extends Controller
 {
@@ -24,6 +25,16 @@ class DashboardController extends Controller
         return view('dashboard',compact('trips','images'));
     }
 
+
+    public function search(Request $request){
+        
+        // $trips=Trip::find($id);
+
+        $search = $request->get('search');
+        $trips = Trip::where('title','like','%'.$search.'%')->paginate(3);
+        return view('dashboard',['trips'=> $trips],compact('trips'));
+
+    }
     /**
      * Show the form for creating a new resource.
      *
