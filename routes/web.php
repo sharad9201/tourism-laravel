@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'DashboardController@index')->name('home');
 // Route::resource('/admin/users', 'Admin\UsersController',['except'=>['show','create','store']]);
 
 
@@ -67,5 +67,5 @@ Route::group(['middleware' => 'web'], function () {
 // // Route::get('/userbooking','DestinationController@userbook')->name('userbooking');
 // Route::resource('userbooking','UserBookingController',['except'=>['edit','create','store','destroy']]);
 
-//for saving the data of cancel booking 
+//for saving the
 Route::post('/userbooking/{id}','UserBookingController@store')->name('userbookingcancel');
