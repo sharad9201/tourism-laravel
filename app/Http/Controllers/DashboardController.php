@@ -7,7 +7,6 @@ use App\Trip;
 use App\Post;
 use App\Destination;
 use App\Image;
-use App\Extraimage;
 
 class DashboardController extends Controller
 {
@@ -21,9 +20,8 @@ class DashboardController extends Controller
         //
         $trips=Trip::all();
         $images=Image::all();
-        $extra=Extraimage::all();
         // /dd($images);
-        return view('dashboard',compact('trips','images','extra'));
+        return view('dashboard',compact('trips','images'));
         
     }
 

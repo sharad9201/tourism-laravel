@@ -17,59 +17,12 @@ class FormController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
         //
-        if (auth()->user()!=null)
-        {
-         $user=auth()->user();
-         $guest=auth()->guest();
-         $images=Image::all();
-         $trip=Trip::find($id);
-        return view('form',compact('user','trip','images'));
-       }
- 
-     else
-        { 
-            return view('dashboard');
-     }
+        return view('form');
     }
-    public function show(){
-        
-       
-        
-        if(auth()->user()!=null)
-        {
-            
-            $bookings=DB::table('bookings')->where('email',"=",auth()->user()->email)->get();
-            //trip id
-            $trips=collect([]);
-           
-            foreach($bookings as $booking)
-            {
-              
-                $id=$booking->trip_id;
-                $product=Trip::find($id);
-                $trips->push($product);
 
-            
-            }
-           $images=Image::all();
-            
-            return view('booking',compact('bookings','trips','images'));
-            
-        }
-        
-        else{
-            toastr()->warning('Login to see the process  ');
-            return redirect(route('dashboard'));
-        }
-        
-        // $users = User::find(auth()->user()->id);
-  
-        //  return view('booking', compact('destinations'));
-  
-     }
     /**
      * Show the form for creating a new resource.
      *
@@ -86,7 +39,7 @@ class FormController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function booking(Request $request,$id)
+    public function store(Request $request)
     {
         //
         $booking=new Booking;
@@ -109,7 +62,10 @@ class FormController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-   
+    public function show($id)
+    {
+        //
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -140,13 +96,8 @@ class FormController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request,$id)
+    public function destroy($id)
     {
         //
-     
-        $booking=Booking::find($id);
-        $booking->delete();
-        toastr()->success("delated successfully");
-        return redirect(route('bookusershow'));
     }
 }

@@ -22,22 +22,16 @@ class WelcomeController extends Controller
         //  return view('welcome');
         
     }
-    public function photo($id)
+    public function photo()
     {
         //
-        // $posts = Extraimage::all();
-        $category=array('carousel','about','dashprofile');
-        $cat=$category[$id];
-      
-        $images =DB::table('extraimages')->where('category','=',$cat)->get();
-       
-        //dd($posts);
-        return view ('photogrid',compact('images','id'));
+        $posts = Extraimage::all();
+        return view ('photogrid')->with('images',$posts);
         //  return view('welcome');
-            
+        
     }
     public function photodelete(Request $request,$id){
-        
+       
         $image=Extraimage::find($id);
         
             Storage::delete($image->image);
@@ -45,28 +39,25 @@ class WelcomeController extends Controller
         
        
        $image->forceDelete();
-
         toastr()->success('Photo Delated successfully ');
-        return redirect(route('photogrid',$request->id));
+        return redirect(route('photogrid'));
 
     }
 
-    public function photostore(Request $request,$id)
+    public function photostore(Request $request)
     {
-        $category=array('carousel','about','dashprofile');
         $this->validate($request,[
             'image'        =>  'required|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
        // dd($request->trip_id);
         $img=$request->image->store('extraimages'); 
         $image=new Extraimage();
-     
-       $image->category=$category[$id];
+        
+       
         $image->image=$img;
         $image->save();
         toastr()->success('Photo Added successfully ');
-       
-        return redirect(route('photogrid',$id));
+        return redirect(route('photogrid'));
 
     }
 

@@ -1,8 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-
+<div class="container w-100">
     <div class="d-flex">
         
         <h1 class="mx-auto">Users List</h1>
@@ -163,16 +162,9 @@
             </div>
            
     </div>
-    
 </div>
-
-
-  
 @endsection
 
-
-@section('scripts')
-<script>
-
-    </script>
+@section('footer')
+    @include('layouts.footer')
 @endsection

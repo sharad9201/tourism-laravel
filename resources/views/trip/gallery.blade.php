@@ -15,15 +15,11 @@
 </div>
  
 @endforeach
-
 @endif
-
-    
 
     <div class="container">
         <div class="title m-4">
             <div class="row">
-            
                 <div class="col-md-8">
     <h2 class="text-center"> Image Gallery of {{$title->title}}</h2>
 <h4 class="text-center">Add Delete section</h4>
@@ -34,10 +30,7 @@
         <div class="form-group">
         <div class="row">
     
-          <div class="form-group">
            
-            <input type="hidden" name="genre" value="{{$title->genre}}">
-          </div>
                <div class="form-control">
                <input type="hidden" id="trip_id" name="trip_id" value="{{$title->id}}">
                   
