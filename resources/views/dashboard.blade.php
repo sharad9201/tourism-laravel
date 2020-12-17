@@ -30,10 +30,10 @@
 </div>
 </section>
 
-<div class="container py-4">
+<div class="container py-4 ">
 <div class="heading">
   <h1>Destination Booking</h1>
-</div>
+ </div>
 
 
   <div class="row">
@@ -67,7 +67,7 @@
         @endforeach 
       </div>
   </div>
-  <div class="heading">
+  <div class="heading mt-20">
     <h1>Recomended</h1>
   </div>
   
@@ -247,6 +247,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.green.min.css"/>
   <script>
+
   jQuery(document).ready(function($){
     $('.owl-carousel').owlCarousel({
       loop:true,

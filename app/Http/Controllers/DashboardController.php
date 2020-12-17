@@ -22,6 +22,8 @@ class DashboardController extends Controller
         $trips=Trip::all();
         $images=Image::all();
         $extra=Extraimage::all();
+        $trip=Trip::all()->groupby('trip_style');
+    
         // /dd($images);
         return view('dashboard',compact('trips','images','extra'));
         
