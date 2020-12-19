@@ -9,7 +9,7 @@
 @can('update-photo',$images)
   
             
-<a href="/photo/2" class="btn btn-primary rounded-0 px-15 py-0_5 float-right"> Change this picture <i class="fas fa-edit"></i></a>
+<a href="/photo/2" class="btn btn-primary rounded9--0 px-15 py-0_5 float-right"> Change this picture <i class="fas fa-edit"></i></a>
 </div>
 @endcan 
 
@@ -47,7 +47,7 @@
         @if ($trip->id==$image->trip_id and $count==0)
        
         
-        
+        <div class="inner">
           <div class="card">
             <img src="{{asset('storage/'.$image->image)}}" alt="pokhara" class="card-img-top">
             <div class="card-body">
@@ -57,7 +57,7 @@
               <a href="{{route('tripdetail.show',$trip->id)}}" class="btn btn-primary br-5">Book now</a>
        
             </div>
-      
+          </div>
         </div>
         @php
         $count=1
@@ -67,6 +67,8 @@
         @endforeach 
       </div>
   </div>
+</div>
+<div class="container py-4 ">
   <div class="heading mt-20">
     <h1>Recomended</h1>
   </div>
@@ -103,7 +105,9 @@
           @endforeach 
         </div>
     </div>
-    
+  </div>
+
+  <div class="container py-4 ">
   <div class="heading"> 
   <h2>Most visited Places</h2>
 
@@ -139,6 +143,8 @@
     @endforeach 
   </div>
 
+</div>
+<div class="container py-4 ">
   <div class="heading">
     <h1>Cheap Destination</h1>
   </div>
@@ -264,7 +270,7 @@
           items:2
         },
         1000:{
-          items:4
+          items:3
         }
       }
     })

@@ -19,7 +19,7 @@
                             <a class="nav-link py-0" href="#">About</a>
                         </li>
                         <li class="nav-item px-10 mb-sm-0_5">                            
-                            <a class="nav-link py-0" href="{{route('userbooking.index')}}">
+                            <a class="nav-link py-0" href="{{route('booking.index')}}">
                                 detail
                             </a>
                         </li>

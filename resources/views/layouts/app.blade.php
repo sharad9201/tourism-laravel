@@ -51,6 +51,7 @@
     @yield("css")
 </head>
 <body>
+    @yield('404')
     
     <div id="app">
         {{-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">

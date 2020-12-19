@@ -87,9 +87,16 @@
         </div> --}}
 
         <div class="our-services d-flex mt-15">
+           
             <div class="container">
+                    
                 <div class="d-flex justify-content-center mb-0_8">
                     <h2>Our Services</h2>
+                        {{-- @can('update-photo',$images)
+                        <div class="mx-30 text-center">
+                        <a href="/photo/1" class="btn btn-primary rounded-0 px-15 py-0_5 float-left text-center"><h4> <i class="fa fa-plus" aria-hidden="true"></i>  Edit Category</h4></a>
+                        </div>
+                        @endcan  --}}
                 </div>
                 <div class="row">
                     <!-- column 1 -->
@@ -105,7 +112,7 @@
                                         Voluptatem laboriosam veniam vel distinctio nesciunt saepe aperiam dolorem,
                                         totam sapiente magni, illo reiciendis corrupti, aliquid tempora blanditiis quia
                                         cum eligendi illum!</p>
-                                    <a href="#" class="card-link text-uppercase style">Read More</a>
+                                    <a href="{{route('category','adventure')}}" class="card-link text-uppercase style">Read More</a>
                                 </div>
                             </div>
                         </div>
@@ -123,7 +130,7 @@
                                         Voluptatem laboriosam veniam vel distinctio nesciunt saepe aperiam dolorem,
                                         totam sapiente magni, illo reiciendis corrupti, aliquid tempora blanditiis quia
                                         cum eligendi illum!</p>
-                                    <a href="#" class="card-link text-uppercase style">Read More</a>
+                                    <a href="{{route('category','trek')}}" class="card-link text-uppercase style">Read More</a>
                                 </div>
                             </div>
                         </div>
@@ -135,18 +142,21 @@
                                 <div class="img-wrap" style="background-image: url('sourceimages/traveller1.jpg');">
                                 </div>
                                 <div class="card-body mt-0_6">
-                                    <h4 class="card-title">Adventure</h4>
+                                    <h4 class="card-title">Short Trip</h4>
                                     <p class="card-text mb-0_4">Lorem ipsum dolor sit amet, consectetur adipisicing
                                         elit.
                                         Voluptatem laboriosam veniam vel distinctio nesciunt saepe aperiam dolorem,
                                         totam sapiente magni, illo reiciendis corrupti, aliquid tempora blanditiis quia
                                         cum eligendi illum!</p>
-                                    <a href="#" class="card-link text-uppercase style">Read More</a>
+                                    <a href="{{route('category','trip')}}" class="card-link text-uppercase style">Read More</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
+                   
+                       
+                    
 
                 </div>
             </div>
@@ -189,33 +199,20 @@
             </div>
         </div>
 
-        <div class="review mt-30">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-1">previous</div>
-                    <div class="col-3"><img class="ml-15 rounded-circle review-img" src="sourceimages/traveller1.jpg"
-                            alt="Generic placeholder image"></div>
-                    <div class="col-7">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia magni
-                        iste,
-                        dicta necessitatibus, ex molestiae eligendi minus fugit ducimus voluptate et laudantium?
-                        Voluptas ea qui officia debitis deleniti sint aspernatur.</div>
-                    <div class="col-1">next</div>
-                </div>
-            </div>
-        </div>
+      
 
         <div class="subscribe d-flex align-items-center bg-primary my-30">
             <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-8">
+                <div class="row ">
+                    <div class="col-8 ">
                         <form method="POST">
-                            <div class="input-group mb-3">
+                            <div class="input-group text-center" >
                                 <input type="email" class="py-0_6 px-15 bg-green color-white form-control"
                                     placeholder="Email Address">
                             </div>
                         </form>
                     </div>
-                    <div class="col-4">
+                    <div class="col-4 ">
                         <button class="btn subscribe-btn btn-lg text-uppercase">Subscribe</button>
                     </div>
                 </div>

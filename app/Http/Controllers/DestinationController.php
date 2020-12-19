@@ -5,10 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Destination;
-use App\db;
+use DB;
 use App\Trip;
+use App\Image;
 use App\DestinationStatus;
 use App\Http\Request\DateRequest;
+
+
 class DestinationController extends Controller
 {
 
@@ -45,6 +48,21 @@ class DestinationController extends Controller
       toastr()->success("booked successfully");
        return redirect()->route('tripdetail.show',['tripdetail'=>$req->trip_id]);
    }
+
+
+   //showing category wise packages
+   public function category($category)
+   {
+      $trips=DB::table('trips')->where('trip_style','=',$category)->simplePaginate(15);
+    
+      $images=Image::all();
+
+      return view('packagedisplay',compact('trips','images'));
+   }
+
+
+
+
    public function index(){
       
       $status=DestinationStatus::all();
