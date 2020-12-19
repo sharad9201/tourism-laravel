@@ -23,7 +23,8 @@
                       <div class="card">
                         <img src="{{asset('storage/'.$image->image)}}" alt="pokhara" class="card-img-top" style="height">
                         <div class="card-body">
-                          <h5 class="card-title">{{$trip->title}}</h5>
+                            <h5 class="card-title font-weight-bold">{{$trip->title}}</h5>
+                            <h5 class="card-title font-weight-bold">Price: Rs {{$trip->price_low}}</h5>
                           <p class="card-text">{!! $trip->higlight !!}</p>
                           
                           <a href="{{route('tripdetail.show',$trip->id)}}" class="btn btn-primary br-5">Book now</a>

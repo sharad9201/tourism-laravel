@@ -70,3 +70,4 @@ Route::group(['middleware' => 'web'], function () {
 //for saving the
 Route::post('/userbooking/{id}','UserBookingController@store')->name('userbookingcancel');
 Route::get('category/{category}','DestinationController@category')->name('category');
+Route::get('search','DashboardController@search')->name('search');

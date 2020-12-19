@@ -22,12 +22,16 @@
 @endforeach
 <h1>Travel Across The Nepal</h1>
 <p>Welcome To Nepal </p>
+<form action="search"method="GET" role="search">
 <div class="input-group">
-    <input type="text" class="form-control" placeholder="Search city" name="" aria-label="" aria-describedby="basic-addon1">
+    
+      
+    <input type="text" class="form-control" placeholder="Search places" name="query" aria-label="" aria-describedby="basic-addon1" required/>
     <div class="input-group-append">
-      <button type="submit" class="btn btn-primary btns" style="border-radius: 25px;">Search</button>
+      <button type="submit" class="btn btn-primary btns"  style="border-radius: 25px;">Search</button>
     </div>
-</div>
+  </div>
+</form>
 </section>
 
 <div class="container py-4 ">
@@ -51,8 +55,8 @@
           <div class="card">
             <img src="{{asset('storage/'.$image->image)}}" alt="pokhara" class="card-img-top">
             <div class="card-body">
-              <h5 class="card-title">{{$trip->title}}</h5>
-              {{-- <p class="card-text">description if needed</p> --}}
+              <h5 class="card-title font-weight-bold">{{$trip->title}}</h5>
+              <h5 class="card-title font-weight-bold">Price: Rs {{$trip->price_low}}</h5>
               
               <a href="{{route('tripdetail.show',$trip->id)}}" class="btn btn-primary br-5">Book now</a>
        
@@ -70,7 +74,7 @@
 </div>
 <div class="container py-4 ">
   <div class="heading mt-20">
-    <h1>Recomended</h1>
+    <h1>Easy Destination</h1>
   </div>
   
   
@@ -81,7 +85,7 @@
           $count=0; 
           @endphp
           @foreach ($images as $image)
-          
+          @if($trip->trip_difficulty=="easy")
           @if ($trip->id==$image->trip_id and $count==0)
          
           
@@ -89,7 +93,8 @@
             <div class="card">
               <img src="{{asset('storage/'.$image->image)}}" alt="pokhara" class="card-img-top">
               <div class="card-body">
-                <h5 class="card-title">{{$trip->title}}</h5>
+                <h5 class="card-title font-weight-bold">{{$trip->title}}</h5>
+                          <h5 class="card-title font-weight-bold">Price: Rs {{$trip->price_low}}</h5>
                 {{-- <p class="card-text">description if needed</p> --}}
                 
                 <a href="{{route('tripdetail.show',$trip->id)}}" class="btn btn-primary br-5">Book now</a>
@@ -101,6 +106,7 @@
           $count=1
          @endphp
          @endif
+         @endif
           @endforeach
           @endforeach 
         </div>
@@ -109,7 +115,7 @@
 
   <div class="container py-4 ">
   <div class="heading"> 
-  <h2>Most visited Places</h2>
+  <h1>Short Trips</h1>
 
 </div>
 
@@ -119,7 +125,7 @@
     $count=0; 
     @endphp
     @foreach ($images as $image)
-    
+    @if($trip->trip_style=="trip")
     @if ($trip->id==$image->trip_id and $count==0)
    
     
@@ -127,7 +133,8 @@
       <div class="card">
         <img src="{{asset('storage/'.$image->image)}}" alt="pokhara" class="card-img-top">
         <div class="card-body">
-          <h5 class="card-title">{{$trip->title}}</h5>
+          <h5 class="card-title font-weight-bold">{{$trip->title}}</h5>
+                          <h5 class="card-title font-weight-bold">Price: Rs {{$trip->price_low}}</h5>
           {{-- <p class="card-text">description if needed</p> --}}
           
           <a href="{{route('tripdetail.show',$trip->id)}}" class="btn btn-primary br-5">Book now</a>
@@ -139,20 +146,102 @@
     $count=1
    @endphp
    @endif
+   @endif
     @endforeach
     @endforeach 
   </div>
 
 </div>
+
+<div class="container py-4 ">
+  <div class="heading"> 
+  <h1>Trekking</h1>
+
+</div>
+
+<div class="owl-carousel owl-theme">
+  @foreach($trips as $trip)
+  @php
+    $count=0; 
+    @endphp
+    @foreach ($images as $image)
+    @if($trip->trip_style=="trek")
+    @if ($trip->id==$image->trip_id and $count==0)
+   
+    
+    
+      <div class="card">
+        <img src="{{asset('storage/'.$image->image)}}" alt="pokhara" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title font-weight-bold">{{$trip->title}}</h5>
+                          <h5 class="card-title font-weight-bold">Price: Rs {{$trip->price_low}}</h5>
+          {{-- <p class="card-text">description if needed</p> --}}
+          
+          <a href="{{route('tripdetail.show',$trip->id)}}" class="btn btn-primary br-5">Book now</a>
+   
+        </div>
+  
+    </div>
+    @php
+    $count=1
+   @endphp
+   @endif
+   @endif
+    @endforeach
+    @endforeach 
+  </div>
+
+</div>
+
+<div class="container py-4 ">
+  <div class="heading"> 
+  <h1>Adventure</h1>
+
+</div>
+
+<div class="owl-carousel owl-theme">
+  @foreach($trips as $trip)
+  @php
+    $count=0; 
+    @endphp
+    @foreach ($images as $image)
+    @if($trip->trip_style=="adventure")
+    @if ($trip->id==$image->trip_id and $count==0)
+   
+    
+    
+      <div class="card">
+        <img src="{{asset('storage/'.$image->image)}}" alt="pokhara" class="card-img-top">
+        <div class="card-body">
+          <h5 class="card-title font-weight-bold">{{$trip->title}}</h5>
+                          <h5 class="card-title font-weight-bold">Price: Rs {{$trip->price_low}}</h5>
+          {{-- <p class="card-text">description if needed</p> --}}
+          
+          <a href="{{route('tripdetail.show',$trip->id)}}" class="btn btn-primary br-5">Book now</a>
+   
+        </div>
+  
+    </div>
+    @php
+    $count=1
+   @endphp
+   @endif
+   @endif
+    @endforeach
+    @endforeach 
+  </div>
+
+</div>
+
 <div class="container py-4 ">
   <div class="heading">
-    <h1>Cheap Destination</h1>
+    <h1>Afforadable Destination</h1>
   </div>
   
   
     <div class="row">
       <div class="owl-carousel owl-theme">
-        @foreach($trips as $trip)
+        @foreach($lows as $trip)
         @php
           $count=0; 
           @endphp
@@ -165,7 +254,8 @@
             <div class="card">
               <img src="{{asset('storage/'.$image->image)}}" alt="pokhara" class="card-img-top">
               <div class="card-body">
-                <h5 class="card-title">{{$trip->title}}</h5>
+                <h5 class="card-title font-weight-bold">{{$trip->title}}</h5>
+                          <h5 class="card-title font-weight-bold">Price: Rs {{$trip->price_low}}</h5>
                 {{-- <p class="card-text">description if needed</p> --}}
                 
                 <a href="{{route('tripdetail.show',$trip->id)}}" class="btn btn-primary br-5">Book now</a>

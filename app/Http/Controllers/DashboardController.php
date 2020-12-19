@@ -8,7 +8,7 @@ use App\Post;
 use App\Destination;
 use App\Image;
 use App\Extraimage;
-
+use DB;
 class DashboardController extends Controller
 {
     /**
@@ -23,9 +23,10 @@ class DashboardController extends Controller
         $images=Image::all();
         $extra=Extraimage::all();
         $trip=Trip::all()->groupby('trip_style');
-    
+        $lows=DB::table('trips')->orderby('price_low')->get();
+        
         // /dd($images);
-        return view('dashboard',compact('trips','images','extra'));
+        return view('dashboard',compact('trips','images','extra','lows'));
         
     }
 
@@ -72,11 +73,26 @@ class DashboardController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    
     public function edit($id)
     {
         //
+
     }
 
+
+    //search bring from dashboard
+
+    public function search(Request $request)
+    {
+        $keyword=$_GET['query'];
+        $images=Image::all();
+        $trips = Trip::where('title','LIKE','%'.$keyword.'%')->orWhere('destination','LIKE','%'.$keyword.'%')->orWhere('itinerary','LIKE','%'.$keyword.'%')->get();
+       
+        return view('search',compact('images','trips'));
+       
+    }
     /**
      * Update the specified resource in storage.
      *
