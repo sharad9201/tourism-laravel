@@ -17,10 +17,12 @@ class FormController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
         //
-        return view('form');
+        
+        $trip = Trip::find($id);
+        return view('form',compact('trip'));
     }
 
     /**

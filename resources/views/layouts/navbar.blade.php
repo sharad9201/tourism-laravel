@@ -15,14 +15,13 @@
                         <li class="nav-item active px-10 mb-sm-0_5">
                             <a class="nav-link py-0" href="{{ route('dashboard') }}">Home</a>
                         </li>
-                        <li class="nav-item px-10 mb-sm-0_5">
-                            <a class="nav-link py-0" href="#">About</a>
-                        </li>
+                        
                         <li class="nav-item px-10 mb-sm-0_5">                            
-                            <a class="nav-link py-0" href="{{route('booking.index')}}">
-                                detail
+                            <a class="nav-link py-0" href="{{route('userbooking.index')}}">
+                                Booking 
                             </a>
                         </li>
+                         
                     </ul>
 
                     <!-- Right Side Of Navbar -->

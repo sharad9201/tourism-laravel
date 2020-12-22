@@ -26,6 +26,7 @@ class DestinationController extends Controller
        'phone_number'=>'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
          'trip_date'=>'required|after_or_equal:'.$dateafter,
      ]);
+     
     //  print_r($req->input());
 
        $destination = new Destination;

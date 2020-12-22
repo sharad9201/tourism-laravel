@@ -28,7 +28,7 @@
     float: left;
     width: 50%;
     height: 400px;
-    background: url(images/1.jpg);
+    background: url(images/login1.png);
     background-size: cover;
     box-sizing: border-box;
 }
@@ -101,7 +101,7 @@
     float: left;
     width: 50%;
     height: 500px;
-    background: url(images/background.jpg);
+    background: url(images/login1.png);
     background-size: cover;
     box-sizing: border-box;
 }

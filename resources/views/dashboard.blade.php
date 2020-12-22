@@ -3,7 +3,9 @@
 @section('css')
 
 <link rel="stylesheet" type="text/css" href="css/dashboard.css">
+
 @endsection
+
 
 @section('content')
 @can('update-photo',$images)
@@ -367,3 +369,4 @@
   })
   </script>
 @endsection
+

@@ -15,7 +15,7 @@
             <div id="carouselExampleControls"  class="carousel slide z-depth-1-half" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="text-wrapper">
-                        <h1>
+                        <h1 >
                             Think about the
                             Traveler Way
                         </h1>
@@ -107,10 +107,7 @@
                                 </div>
                                 <div class="card-body mt-0_6">
                                     <h4 class="card-title">Adventure</h4>
-                                    <p class="card-text mb-0_4">Lorem ipsum dolor sit amet, consectetur adipisicing
-                                        elit.
-                                        Voluptatem laboriosam veniam vel distinctio nesciunt saepe aperiam dolorem,
-                                        totam sapiente magni, illo reiciendis corrupti, aliquid tempora blanditiis quia
+                                    <p class="card-text mb-0_4">An adventure is an exciting experience that is typically bold, sometimes risky, undertaking. Adventures may be activities with some potential for physical dange, illo reiciendis corrupti, aliquid tempora blanditiis quia
                                         cum eligendi illum!</p>
                                     <a href="{{route('category','adventure')}}" class="card-link text-uppercase style">Read More</a>
                                 </div>
@@ -121,7 +118,7 @@
                     <div class="col-sm-6 col-md-4">
                         <div class="card">
                             <div class="card-body">
-                                <div class="img-wrap" style="background-image: url('sourceimages/traveller1.jpg');">
+                                <div class="img-wrap" style="background-image: url('sourceimages/traveller2.jpg');">
                                 </div>
                                 <div class="card-body mt-0_6">
                                     <h4 class="card-title">Trek</h4>
@@ -139,7 +136,7 @@
                     <div class="col-sm-6 col-md-4">
                         <div class="card">
                             <div class="card-body">
-                                <div class="img-wrap" style="background-image: url('sourceimages/traveller1.jpg');">
+                                <div class="img-wrap" style="background-image: url('sourceimages/traveller3.jpg');">
                                 </div>
                                 <div class="card-body mt-0_6">
                                     <h4 class="card-title">Short Trip</h4>
@@ -178,22 +175,17 @@
                 </div>
                 @endif
                 @endforeach 
-                <div class="colsm-12 col-md-6">
+                <div class="colsm-12 col-md-6 mb-30">
                     <div class="text-wrap p-45">
                         <h2 class="my-30">Why Nepal?</h2>
+                        <p class="my-15">Nepal is a country of contrasts. Spectacular natural riches combine with a vibrant culture and sense of history. Home to ten of the world's 14 highest mountains, the country offers a magnificent setting for hiking and mountaineering, as well as some of the world's best white water rafting.</p>
                         <p class="my-15">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis laboriosam
                             minima
                             praesentium
                             sapiente? Aliquid sit deserunt deleniti quaerat, eaque, doloribus magnam dolores,
                             voluptatibus
                             tenetur dolorum optio eligendi unde enim accusamus?</p>
-                        <p class="my-15">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis laboriosam
-                            minima
-                            praesentium
-                            sapiente? Aliquid sit deserunt deleniti quaerat, eaque, doloribus magnam dolores,
-                            voluptatibus
-                            tenetur dolorum optio eligendi unde enim accusamus?</p>
-                        <button class="btn btn-primary rounded-0 btn-lg my-15">Visit Now</button>
+                            <a href="{{route('dashboard')}}" class="btn btn-primary rounded-0 px-15 py-0_5">Lets go</a>
                     </div>
                 </div>
             </div>
@@ -201,23 +193,7 @@
 
       
 
-        <div class="subscribe d-flex align-items-center bg-primary my-30">
-            <div class="container">
-                <div class="row ">
-                    <div class="col-8 ">
-                        <form method="POST">
-                            <div class="input-group text-center" >
-                                <input type="email" class="py-0_6 px-15 bg-green color-white form-control"
-                                    placeholder="Email Address">
-                            </div>
-                        </form>
-                    </div>
-                    <div class="col-4 ">
-                        <button class="btn subscribe-btn btn-lg text-uppercase">Subscribe</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
       
     </main>
 @endsection
