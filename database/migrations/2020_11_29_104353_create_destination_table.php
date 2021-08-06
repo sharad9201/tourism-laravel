@@ -26,7 +26,7 @@ class CreateDestinationTable extends Migration
             // $table->string('destination');
             $table->timestamps();
             $table->Integer('trip_id')->unsigned();
-          $table->foreign('trip_id')->references('id')->on('trips')->ondelete('cascade');
+            $table->foreign('trip_id')->references('id')->on('trips')->ondelete('cascade');
 
             // $table->string('destination');
             $table->Integer('user_id')->unsigned();
